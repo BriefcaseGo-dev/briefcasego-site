@@ -55,17 +55,13 @@ nav {
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 9px;
   white-space: nowrap;
 }
-.nav-logo-icon {
-  width: 26px;
-  height: auto;
-  flex-shrink: 0;
+.nav-logo-lockup {
+  height: 32px;
+  width: auto;
   display: block;
 }
-.nav-logo-text { display: inline-flex; white-space: nowrap; }
-.nav-logo span { color: var(--orange); }
 .nav-links {
   display: flex; align-items: center; gap: 28px;
   font-size: 14px; font-weight: 500;
