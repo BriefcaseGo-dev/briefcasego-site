@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BriefcaseGo — Knowledge on the go, no briefcase required</title>
+<meta name="description" content="BriefcaseGo makes offline, single-file study and learning apps for busy professionals — starting with the AAISM™ exam prep app.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  /* ── HOMEPAGE HERO ── */
+  .hero {
+    padding: 90px 24px 70px;
+    max-width: 920px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .hero-h1 {
+    font-family: var(--font-display);
+    font-size: clamp(44px, 8vw, 86px);
+    font-weight: 700;
+    line-height: 1.0;
+    letter-spacing: -2px;
+    margin-bottom: 24px;
+  }
+  .hero-h1 span { color: var(--orange); }
+  .hero-sub {
+    font-size: clamp(16px, 2vw, 20px);
+    color: var(--text-muted);
+    max-width: 580px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+  }
+  .hero-sub strong { color: var(--text-primary); }
+  .hero-cta-row {
+    display: flex; align-items: center; justify-content: center;
+    gap: 16px; flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+  .hero-tagline {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-dim);
+    letter-spacing: .04em;
+    margin-top: 28px;
+  }
+
+  /* ── FLAGSHIP PRODUCT CARD ── */
+  .flagship {
+    background: var(--navy-card);
+    border: 1px solid var(--navy-border);
+    border-radius: 20px;
+    padding: 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .flagship::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, var(--orange-dim) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .flagship-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px; font-weight: 600;
+    color: var(--orange);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .flagship-title {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 700;
+    letter-spacing: -.5px;
+    line-height: 1.15;
+    margin-bottom: 14px;
+  }
+  .flagship-desc {
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+  .flagship-stats {
+    display: flex; gap: 28px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+  .flagship-stat-val {
+    font-family: var(--font-mono);
+    font-size: 22px; font-weight: 600;
+    color: var(--orange);
+    display: block;
+  }
+  .flagship-stat-lbl {
+    font-size: 11px; color: var(--text-muted);
+    text-transform: uppercase; letter-spacing: .06em;
+  }
+  .flagship-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .flagship-visual {
+    background: var(--navy-deep);
+    border: 1px solid var(--navy-border);
+    border-radius: var(--r);
+    padding: 24px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+  }
+  .flagship-visual-row {
+    display: flex; justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--navy-border);
+    color: var(--text-muted);
+  }
+  .flagship-visual-row:last-child { border-bottom: none; }
+  .flagship-visual-row span:last-child { color: var(--orange); font-weight: 600; }
+
+  @media (max-width: 800px) {
+    .flagship { grid-template-columns: 1fr; padding: 32px 24px; }
+  }
+
+  /* ── ROADMAP / COMING SOON GRID ── */
+  .roadmap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .roadmap-card {
+    background: var(--navy-card);
+    border: 1px solid var(--navy-border);
+    border-radius: var(--r);
+    padding: 28px 24px;
+    position: relative;
+  }
+  .roadmap-icon {
+    font-size: 26px;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .roadmap-title {
+    font-family: var(--font-display);
+    font-size: 16px; font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .roadmap-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  .roadmap-status {
+    font-family: var(--font-mono);
+    font-size: 10px; font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    display: inline-block;
+    border: 1px solid var(--navy-border);
+    border-radius: 100px;
+    padding: 4px 12px;
+  }
+  .roadmap-status.live { color: var(--orange); border-color: var(--orange-glow); }
+
+  /* ── WHY GRID ── */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .why-card {
+    padding: 0;
+  }
+  .why-icon { font-size: 26px; margin-bottom: 16px; display: block; }
+  .why-title {
+    font-family: var(--font-display);
+    font-size: 16px; font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .why-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+  /* ── BOTTOM CTA ── */
+  .cta-section {
+    text-align: center;
+    padding: 80px 24px 100px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .cta-headline {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  .cta-sub {
+    color: var(--text-muted);
+    font-size: 17px;
+    margin-bottom: 36px;
+    line-height: 1.7;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Briefcase<span>Go</span></a>
+  <div class="nav-links">
+    <a href="apps/aaism/index.html">AAISM™ Study App</a>
+    <a href="about/index.html">About</a>
+  </div>
+  <div class="nav-right">
+    <a class="nav-cta" href="apps/aaism/index.html">View AAISM App</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="pill dot center" style="display:inline-flex;margin-bottom:28px;">Independent Study &amp; Learning Apps</div>
+  <h1 class="hero-h1">Knowledge on<br>the <span>go</span>.</h1>
+  <p class="hero-sub">
+    <strong>No briefcase required.</strong><br>
+    BriefcaseGo builds focused, offline-first study tools for busy professionals — single files you download once and use anywhere, on any device, forever.
+  </p>
+  <div class="hero-cta-row">
+    <a class="btn-primary" href="apps/aaism/index.html">Explore the AAISM™ Study App</a>
+    <a class="btn-secondary" href="about/index.html">About BriefcaseGo</a>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- FLAGSHIP PRODUCT -->
+<section id="flagship">
+  <div class="sect-label">Flagship Product</div>
+  <h2 class="sect-title">Built for the exam.<br>Built to actually work.</h2>
+  <p class="sect-sub">Our first release is a complete, offline study app for the AAISM™ certification — built by someone who took and passed the exam.</p>
+
+  <div class="flagship reveal">
+    <div class="flagship-content">
+      <div class="flagship-eyebrow">AAISM™ Certification Prep</div>
+      <h3 class="flagship-title">AAISM™ Study App</h3>
+      <p class="flagship-desc">300 practice questions, a full study guide, a 120-term glossary, and a weighted 90-question simulated exam — all in a single HTML file that works completely offline, in any browser.</p>
+      <div class="flagship-stats">
+        <div>
+          <span class="flagship-stat-val">300</span>
+          <span class="flagship-stat-lbl">Questions</span>
+        </div>
+        <div>
+          <span class="flagship-stat-val">120</span>
+          <span class="flagship-stat-lbl">Glossary Terms</span>
+        </div>
+        <div>
+          <span class="flagship-stat-val">3</span>
+          <span class="flagship-stat-lbl">Exam Domains</span>
+        </div>
+      </div>
+      <div class="flagship-actions">
+        <a class="btn-primary" href="apps/aaism/index.html">View the App — $14.99</a>
+      </div>
+    </div>
+    <div class="flagship-visual">
+      <div class="flagship-visual-row"><span>Format</span><span>Single HTML file</span></div>
+      <div class="flagship-visual-row"><span>Connection</span><span>100% Offline</span></div>
+      <div class="flagship-visual-row"><span>Account required</span><span>None</span></div>
+      <div class="flagship-visual-row"><span>Expiry</span><span>Never</span></div>
+      <div class="flagship-visual-row"><span>Works on</span><span>Any browser</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ROADMAP -->
+<section id="roadmap">
+  <div class="sect-label">What's Next</div>
+  <h2 class="sect-title">More on-the-go<br>learning is coming.</h2>
+  <p class="sect-sub">AAISM™ prep is just the start. BriefcaseGo is building a small family of focused, offline-first apps for people who want to learn in spare moments — not scroll through one more bloated platform.</p>
+  <div class="roadmap-grid">
+    <div class="roadmap-card reveal">
+      <span class="roadmap-icon">🛡️</span>
+      <div class="roadmap-title">More Certification Prep</div>
+      <div class="roadmap-desc">Additional professional certification study apps, built with the same offline, single-file approach.</div>
+      <span class="roadmap-status">Exploring</span>
+    </div>
+    <div class="roadmap-card reveal">
+      <span class="roadmap-icon">🎵</span>
+      <div class="roadmap-title">Music</div>
+      <div class="roadmap-desc">A lightweight, on-the-go music learning or trivia experience.</div>
+      <span class="roadmap-status">Coming Soon</span>
+    </div>
+    <div class="roadmap-card reveal">
+      <span class="roadmap-icon">⚽</span>
+      <div class="roadmap-title">Soccer</div>
+      <div class="roadmap-desc">Trivia and knowledge-building for soccer fans, in the same quick-hit format.</div>
+      <span class="roadmap-status">Coming Soon</span>
+    </div>
+    <div class="roadmap-card reveal">
+      <span class="roadmap-icon">🧠</span>
+      <div class="roadmap-title">General Trivia</div>
+      <div class="roadmap-desc">Bite-sized trivia for curious minds — no account, no ads, no subscription.</div>
+      <span class="roadmap-status">Coming Soon</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHY -->
+<section id="why">
+  <div class="sect-label">Why BriefcaseGo</div>
+  <h2 class="sect-title">Simple by design.</h2>
+  <p class="sect-sub">Every BriefcaseGo app follows the same philosophy: download once, own it forever, use it anywhere.</p>
+  <div class="why-grid">
+    <div class="why-card card reveal">
+      <span class="why-icon">📦</span>
+      <div class="why-title">One File, No Install</div>
+      <div class="why-desc">Every app is a single file. No app store, no install wizard — just open it in a browser.</div>
+    </div>
+    <div class="why-card card reveal">
+      <span class="why-icon">✈️</span>
+      <div class="why-title">Truly Offline</div>
+      <div class="why-desc">No servers, no syncing, no internet required after download. Study on a plane, a subway, anywhere.</div>
+    </div>
+    <div class="why-card card reveal">
+      <span class="why-icon">🔒</span>
+      <div class="why-title">No Account, No Tracking</div>
+      <div class="why-desc">Nothing to sign up for. Nothing phoning home. Your study data stays on your device.</div>
+    </div>
+    <div class="why-card card reveal">
+      <span class="why-icon">💳</span>
+      <div class="why-title">Buy Once, Keep Forever</div>
+      <div class="why-desc">No subscriptions. Pay once, and the file is yours — no expiry date, ever.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BOTTOM CTA -->
+<div class="cta-section">
+  <h2 class="cta-headline reveal">Start with the<br>AAISM™ Study App.</h2>
+  <p class="cta-sub reveal">300 questions, a full study guide, and a simulated exam — ready to download today.</p>
+  <a class="btn-primary reveal" href="apps/aaism/index.html" style="font-size:18px;padding:18px 48px;">
+    Explore the App — $14.99
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="apps/aaism/index.html">AAISM™ Study App</a>
+    <a href="about/index.html">About</a>
+  </div>
+  <p>A <strong>BriefcaseGo</strong> product — Knowledge on the go, no briefcase required.</p>
+  <p class="footer-disclaimer">BriefcaseGo is an independent publisher of study and learning tools and is not affiliated with, sponsored by, or endorsed by ISACA or any certification body referenced on this site. AAISM™ is a trademark of ISACA.</p>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
