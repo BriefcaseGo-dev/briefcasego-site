@@ -55,8 +55,16 @@ nav {
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 9px;
+  white-space: nowrap;
 }
+.nav-logo-icon {
+  width: 26px;
+  height: auto;
+  flex-shrink: 0;
+  display: block;
+}
+.nav-logo-text { display: inline-flex; white-space: nowrap; }
 .nav-logo span { color: var(--orange); }
 .nav-links {
   display: flex; align-items: center; gap: 28px;
