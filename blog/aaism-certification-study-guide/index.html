@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AAISM Certification Study Guide: Exam Domains, Prep Resources & What to Expect</title>
+<link rel="icon" type="image/png" sizes="64x64" href="../../assets/img/favicon-32.png">
+<link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png">
+<meta name="description" content="A complete AAISM certification study guide: prerequisites, exam domain weighting, a suggested study plan, common mistakes, and FAQs — written by someone who passed the exam.">
+<link rel="canonical" href="https://briefcasego.com/blog/aaism-certification-study-guide/">
+<meta property="og:title" content="AAISM Certification Study Guide: Exam Domains, Prep Resources & What to Expect">
+<meta property="og:description" content="Prerequisites, exam domain weighting, a suggested study plan, and the mistakes that trip up most AAISM candidates.">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2026-07-19">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=DM+Sans:wght@900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AAISM Certification Study Guide: Exam Domains, Prep Resources & What to Expect",
+  "description": "A complete AAISM certification study guide: prerequisites, exam domain weighting, a suggested study plan, common mistakes, and FAQs.",
+  "datePublished": "2026-07-19",
+  "dateModified": "2026-07-19",
+  "author": { "@type": "Organization", "name": "BriefcaseGo" },
+  "publisher": { "@type": "Organization", "name": "BriefcaseGo" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is the AAISM certification worth it?",
+      "acceptedAnswer": { "@type": "Answer", "text": "For CISM or CISSP holders already working in security, risk, or governance roles that touch AI systems, AAISM adds a focused credential in a fast-growing niche with relatively few certified professionals so far. Whether it's worth it depends on whether your role or target role involves AI governance, risk, or security decisions." }
+    },
+    {
+      "@type": "Question",
+      "name": "How hard is the AAISM exam?",
+      "acceptedAnswer": { "@type": "Answer", "text": "AAISM is scenario-heavy rather than pure memorization, testing whether you can apply governance, risk, and control concepts to realistic situations. Candidates with hands-on AI governance or risk experience tend to find it more manageable than those approaching it purely from a technical AI background." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I take the AAISM exam without CISM or CISSP?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. An active CISM or CISSP certification is a hard prerequisite for AAISM eligibility." }
+    },
+    {
+      "@type": "Question",
+      "name": "How long should I study for AAISM?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Most candidates who already hold CISM or CISSP and have some AI project experience spend around 2 to 3 months preparing. Those newer to AI concepts should plan for longer." }
+    }
+  ]
+}
+</script>
+<style>
+  .article-hero {
+    padding: 64px 24px 40px;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .article-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px; font-weight: 600;
+    color: var(--orange);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .article-h1 {
+    font-family: var(--font-display);
+    font-size: clamp(30px, 5vw, 46px);
+    font-weight: 700;
+    letter-spacing: -1px;
+    line-height: 1.12;
+    margin-bottom: 20px;
+  }
+  .article-meta {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+
+  .article-body {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 8px 24px 100px;
+  }
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: clamp(22px, 3vw, 28px);
+    font-weight: 700;
+    letter-spacing: -.5px;
+    line-height: 1.2;
+    margin: 52px 0 18px;
+  }
+  .article-body h2:first-child { margin-top: 0; }
+  .article-body p {
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.85;
+    margin-bottom: 20px;
+  }
+  .article-body p strong,
+  .article-body li strong { color: var(--text-primary); }
+  .article-body ul, .article-body ol {
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.85;
+    margin: 0 0 20px 22px;
+  }
+  .article-body li { margin-bottom: 8px; }
+  .article-body a { color: var(--orange); text-decoration: underline; text-underline-offset: 2px; }
+
+  .callout {
+    background: var(--navy-card);
+    border: 1px solid var(--navy-border);
+    border-left: 3px solid var(--orange);
+    border-radius: var(--r);
+    padding: 20px 24px;
+    margin: 28px 0;
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.75;
+  }
+  .callout strong { color: var(--text-primary); }
+
+  /* ── DOMAIN TABLE ── */
+  .domain-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0 28px;
+    font-size: 15px;
+  }
+  .domain-table th {
+    text-align: left;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--navy-border);
+  }
+  .domain-table td {
+    padding: 14px;
+    border-bottom: 1px solid var(--navy-border);
+    color: var(--text-muted);
+    vertical-align: top;
+  }
+  .domain-table td:first-child { color: var(--text-primary); font-weight: 500; }
+  .domain-table td.weight {
+    font-family: var(--font-mono);
+    color: var(--orange);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* ── FAQ (native details/summary) ── */
+  .faq-item {
+    border-bottom: 1px solid var(--navy-border);
+  }
+  .faq-item summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 20px 4px;
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: '+';
+    font-family: var(--font-mono);
+    color: var(--orange);
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .faq-item[open] summary::after { content: '−'; }
+  .faq-item p {
+    padding: 0 4px 20px;
+    margin: 0;
+  }
+
+  /* ── AUTHOR / CTA ── */
+  .author-box {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--navy-card);
+    border: 1px solid var(--navy-border);
+    border-radius: var(--r);
+    padding: 20px 24px;
+    margin: 40px 0 0;
+  }
+  .author-box p { margin: 0; font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+  .author-box strong { color: var(--text-primary); }
+
+  .inline-cta {
+    background: var(--navy-card);
+    border: 1px solid var(--orange-glow);
+    border-radius: var(--r);
+    padding: 28px;
+    margin: 44px 0;
+    text-align: center;
+  }
+  .inline-cta p { color: var(--text-muted); margin-bottom: 16px; font-size: 15px; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="../../assets/img/briefcasego-lockup-horizontal.svg" alt="BriefcaseGo" class="nav-logo-lockup">
+  </a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/apps/aaism/">AAISM™ Study App</a>
+    <a href="/blog/" class="active">Blog</a>
+    <a href="/about/">About</a>
+  </div>
+  <div class="nav-right">
+    <a class="nav-cta" href="/apps/aaism/">View AAISM App</a>
+  </div>
+</nav>
+
+<!-- ARTICLE HERO -->
+<div class="article-hero">
+  <div class="article-eyebrow">AAISM™ Certification</div>
+  <h1 class="article-h1">AAISM Certification Study Guide: Exam Domains, Prep Resources & What to Expect</h1>
+  <div class="article-meta">Updated July 2026 · 8 min read</div>
+</div>
+
+<div class="article-body">
+
+<p>ISACA's Advanced in AI Security Management (AAISM™) is one of the newest credentials to come out of the security field's scramble to keep pace with AI. If you already hold CISM or CISSP and your role touches AI governance, risk, or controls, it's worth understanding exactly what the exam covers before you commit to a study plan. This guide breaks down the domains, prerequisites, and a realistic path to being ready — written by someone who took and passed it.</p>
+
+<h2>What Is the AAISM Certification?</h2>
+<p>AAISM is ISACA's advanced credential for experienced security professionals who need to manage AI-specific risk inside an organization — identifying where AI systems introduce new threats, building governance and policy around AI use, and applying controls that keep deployments secure. It sits alongside CISM and CISSP rather than replacing either: it's an advanced, specialized layer on top of a credential you're expected to already hold.</p>
+<p>It's aimed at people already operating in security management, risk, or advisory roles who are being asked — formally or informally — to weigh in on how their organization uses AI safely.</p>
+
+<h2>Prerequisites & Eligibility</h2>
+<p>AAISM has a firm prerequisite: you need an <strong>active CISM or CISSP certification</strong> to register. There's no substitute path around this requirement.</p>
+<p>Once you register and pay the exam fee, you have a <strong>six-month eligibility window</strong> to sit the exam — the clock starts on your registration date, not your payment date, so it's worth registering only once you're within striking distance of being ready. Exam appointments can only be booked up to 90 days out, and you can reschedule anytime up to 48 hours before your slot without penalty.</p>
+<p>Pricing, as of this writing: <strong>$459 for ISACA members</strong> and <strong>$599 for non-members</strong> to sit the exam, plus a separate <strong>$50 application fee</strong> once you've passed and are ready to apply for the credential itself. Verify current pricing on ISACA's site before registering, since certification fees do shift over time.</p>
+<div class="callout"><strong>Note:</strong> residents of India, Mainland China, and Hong Kong can only take the AAISM exam at a physical testing center — remote proctoring isn't available in those regions.</div>
+
+<h2>Exam Domains & Weighting</h2>
+<p>The exam is split across three domains. Domain weighting tells you where to spend your study hours — a domain worth over a third of the exam deserves more than a third of your prep time.</p>
+<table class="domain-table">
+  <thead>
+    <tr><th>Domain</th><th>Weight</th><th>Focus areas</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1 — AI Governance &amp; Program Management</td>
+      <td class="weight">31%</td>
+      <td>AI governance structures, stakeholder management, AI strategy &amp; policy, acceptable use, incident response, business continuity</td>
+    </tr>
+    <tr>
+      <td>2 — AI Risk Management</td>
+      <td class="weight">31%</td>
+      <td>Risk identification, NIST AI RMF, EU AI Act, threat modeling, OWASP LLM Top 10, vendor risk management</td>
+    </tr>
+    <tr>
+      <td>3 — AI Technologies &amp; Controls</td>
+      <td class="weight">38%</td>
+      <td>AI system architecture, technical security controls, model and data protection</td>
+    </tr>
+  </tbody>
+</table>
+<p>Domain 3 carries the single largest share of the exam, but Domains 1 and 2 combined make up nearly two-thirds of it — governance and risk framing matters just as much as the technical control knowledge, and it's the area technically-minded candidates most often underprepare for.</p>
+
+<h2>How to Study for AAISM: A Suggested Plan</h2>
+<p>Most candidates who already hold CISM or CISSP and have some hands-on exposure to AI projects spend around <strong>two to three months</strong> preparing. If you're newer to AI concepts specifically, budget more time — this isn't an exam you can cram for, since it leans heavily on scenario-based questions that test judgment rather than recall.</p>
+<p>A workable structure:</p>
+<ul>
+  <li><strong>Weeks 1–3 — Domain 1 &amp; 2 foundations.</strong> Work through AI governance structures and risk frameworks first. If governance and risk management are already familiar territory from CISM, this moves faster than you'd expect — you're mostly relearning familiar concepts through an AI lens.</li>
+  <li><strong>Weeks 4–6 — Domain 3 technical depth.</strong> This is where most study time should concentrate, given the 38% weighting. Focus on how AI system architecture creates new attack surfaces and what controls actually mitigate them.</li>
+  <li><strong>Weeks 7–8 — Practice questions across all domains.</strong> Scenario-based practice is more valuable than flashcard-style review at this stage — you're training judgment, not just recall.</li>
+  <li><strong>Final week — Weak-area review and a full timed practice run.</strong> Simulate exam conditions once before test day so pacing isn't a surprise.</li>
+</ul>
+<p>ISACA's own resources are a reasonable starting point: the official Review Manual, the Questions, Answers & Explanations database, and the member-exclusive ISACA Engage study forum, where candidates trade study tips and get help from experts for free. Treat third-party tools — practice-question apps, study guides like this one — as supplements that reinforce and test what you've learned, not replacements for understanding the underlying concepts.</p>
+
+<div class="inline-cta">
+  <p>Want a structured way to drill all three domains? The AAISM™ Study App has 300 practice questions, a full study guide, a glossary, and a 90-question simulated exam — built to work fully offline once unlocked.</p>
+  <a class="btn-primary" href="/apps/aaism/">Explore the AAISM™ Study App — $14.99</a>
+</div>
+
+<h2>Common Mistakes That Trip Up Candidates</h2>
+<p>A pattern shows up again and again with AAISM candidates: strong technical security backgrounds lead people to over-invest in Domain 3's technical controls while under-preparing for Domains 1 and 2 — governance structures, stakeholder alignment, and the ethical and policy dimensions of AI deployment. Since those two domains combine for 62% of the exam, that imbalance costs more than it seems like it should going in.</p>
+<p>The second common trap is treating this like a pure knowledge-recall exam. AAISM questions tend to be scenario-based — describing a situation and asking what the right governance or risk response is — which means memorizing definitions alone won't carry you through. Grounding each concept in a real example (a specific AI incident, a specific control failure) makes that judgment easier to apply under exam conditions.</p>
+
+<h2>Frequently Asked Questions</h2>
+<div class="faq-list">
+  <details class="faq-item">
+    <summary>Is the AAISM certification worth it?</summary>
+    <p>For CISM or CISSP holders already working in security, risk, or governance roles that touch AI systems, AAISM adds a focused credential in a fast-growing niche with relatively few certified professionals so far. Whether it's worth it for you depends on whether your current or target role involves AI governance, risk, or security decisions.</p>
+  </details>
+  <details class="faq-item">
+    <summary>How hard is the AAISM exam?</summary>
+    <p>It's scenario-heavy rather than pure memorization — you're tested on whether you can apply governance, risk, and control concepts to realistic situations. Candidates with hands-on AI governance or risk experience tend to find it more manageable than those approaching it purely from a technical AI background.</p>
+  </details>
+  <details class="faq-item">
+    <summary>Can I take the AAISM exam without CISM or CISSP?</summary>
+    <p>No — an active CISM or CISSP certification is a hard prerequisite for AAISM eligibility. There's no alternate path around it.</p>
+  </details>
+  <details class="faq-item">
+    <summary>How long should I study for AAISM?</summary>
+    <p>Most candidates who already hold CISM or CISSP and have some AI project experience spend around two to three months preparing. Those newer to AI concepts should plan for longer, since the exam tests applied judgment more than definitions.</p>
+  </details>
+</div>
+
+<div class="author-box">
+  <p><strong>Written by the BriefcaseGo team.</strong> BriefcaseGo builds offline-first study apps for professional certifications, starting with the AAISM™ Study App — created by a security professional who studied for, and passed, the AAISM exam.</p>
+</div>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/apps/aaism/">AAISM™ Study App</a>
+    <a href="/blog/">Blog</a>
+    <a href="/about/">About</a>
+  </div>
+  <p>A <strong>BriefcaseGo</strong> product — Knowledge on the go, no briefcase required.</p>
+  <p class="footer-disclaimer">BriefcaseGo is an independent publisher of study and learning tools and is not affiliated with, sponsored by, or endorsed by ISACA or any certification body referenced on this site. AAISM™ is a trademark of ISACA. Exam pricing, eligibility windows, and policies are set by ISACA and subject to change — verify current details at isaca.org before registering.</p>
+</footer>
+
+</body>
+</html>
