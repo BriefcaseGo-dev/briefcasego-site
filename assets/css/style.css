@@ -107,6 +107,8 @@ nav {
 }
 .btn-primary:hover { background: #c94408; transform: translateY(-2px); box-shadow: 0 8px 32px var(--orange-glow); }
 .btn-primary:active { transform: translateY(0); }
+/* Higher specificity than blog pages' local ".article-body a" link styling, which otherwise recolors/underlines CTA buttons */
+.article-body a.btn-primary { color: #fff; text-decoration: none; }
 .btn-secondary {
   color: var(--text-muted);
   font-size: 15px;
