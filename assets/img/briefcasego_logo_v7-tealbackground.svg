@@ -5,7 +5,7 @@
   
 
   <!-- Background -->
-  <rect width="680" height="380" fill="#0B1628"/>
+  <rect width="680" height="380" fill="#142422"/>
 
   <defs>
     <linearGradient id="g1" x1="1" y1="0" x2="0" y2="0">
@@ -100,8 +100,8 @@
   </g>
 
   <!-- ── WORDMARK ── -->
-  <text x="340" y="295" text-anchor="middle" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:middle;dominant-baseline:auto">
-    <tspan style="fill:rgb(250, 249, 245);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;DM Sans&quot;, sans-serif;font-size:40px;font-weight:900;text-anchor:middle;dominant-baseline:auto">Briefcase</tspan><tspan style="fill:rgb(194, 65, 12);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;DM Sans&quot;, sans-serif;font-size:40px;font-weight:900;text-anchor:middle;dominant-baseline:auto">Go</tspan>
+  <text x="204.5" y="295" style="font-family:&quot;DM Sans&quot;, sans-serif;font-size:40px;font-weight:900;dominant-baseline:auto">
+    <tspan fill="#FAF9F5">Briefcase</tspan><tspan fill="#C2410C">Go</tspan>
   </text>
   <text x="340" y="323" text-anchor="middle" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;DM Sans&quot;, sans-serif;font-size:18px;font-weight:400;text-anchor:middle;dominant-baseline:auto">KNOWLEDGE ON THE GO</text>
 

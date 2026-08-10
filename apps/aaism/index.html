@@ -3,1232 +3,550 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AAISM™ Study App — BriefcaseGo</title>
+<title>AI Security Management Prep — BriefcaseGo</title>
 <link rel="icon" type="image/png" sizes="64x64" href="../../assets/img/favicon-32.png">
 <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png">
-<meta name="description" content="Offline-capable AAISM™ exam prep app with 300 practice questions, a full study guide, glossary, and a 90-question simulated exam. Instant access, no account, no subscription.">
+<meta name="description" content="AI Security Management Prep — 300 practice questions, a full study guide, a 120-term glossary, and a 90-question simulated exam for the AAISM™ certification. Works offline, no account required.">
 <link rel="canonical" href="https://briefcasego.com/apps/aaism/">
-<meta property="og:title" content="AAISM™ Study App — BriefcaseGo">
-<meta property="og:description" content="300 practice questions, a study guide, glossary, and a simulated exam — works offline after your first visit.">
-<meta property="og:type" content="website">
-<meta name="description" content="Offline-capable study app for the AAISM™ certification exam. 300 practice questions, a full study guide, glossary, and a 90-question simulated exam — instant access, no account required.">
+<meta property="og:title" content="AI Security Management Prep — BriefcaseGo">
+<meta property="og:description" content="Your study companion for the AAISM™ exam. 300 questions, a full study guide, and a simulated exam — works offline.">
+<meta property="og:type" content="product">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=DM+Sans:wght@900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<script src="https://gumroad.com/js/gumroad.js"></script>
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --navy-deep:   #0B1628;
-    --navy-card:   #0F1E38;
-    --navy-border: #1A2F50;
-    --orange:      #E8540A;
-    --orange-dim:  rgba(232,84,10,.12);
-    --orange-glow: rgba(232,84,10,.25);
-    --text-primary:#F0F4FF;
-    --text-muted:  #8A9BB8;
-    --text-dim:    #4A607F;
-    --font-display:'Space Grotesk', sans-serif;
-    --font-body:   'Inter', sans-serif;
-    --font-mono:   'JetBrains Mono', monospace;
-    --r: 12px;
-    --r-sm: 8px;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--navy-deep);
-    color: var(--text-primary);
-    font-family: var(--font-body);
-    font-size: 16px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* ── NAV ── */
-  nav {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(11,22,40,.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--navy-border);
-    padding: 10px 24px;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .nav-logo {
-    font-family: var(--font-display);
-    font-size: 18px; font-weight: 700;
-    color: var(--text-primary);
-    letter-spacing: -.3px;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    white-space: nowrap;
-  }
-  .nav-logo-lockup { height: 52px; width: auto; display: block; }
-  .nav-links {
-    display: flex; align-items: center; gap: 28px;
-    font-size: 14px; font-weight: 500;
-  }
-  .nav-links a {
-    color: var(--text-muted);
-    text-decoration: none;
-    transition: color .15s;
-  }
-  .nav-links a:hover { color: var(--text-primary); }
-  .nav-right { display: flex; align-items: center; }
-  @media (max-width: 700px) {
-    .nav-links { display: none; }
-  }
-  .nav-buy {
-    background: var(--orange);
-    color: #fff;
-    border: none;
-    border-radius: var(--r-sm);
-    padding: 9px 20px;
-    font-family: var(--font-display);
-    font-size: 14px; font-weight: 600;
-    cursor: pointer;
-    transition: background .15s, transform .1s;
-    text-decoration: none;
-    display: inline-block;
-  }
-  .nav-buy:hover { background: #c94408; transform: translateY(-1px); }
-  .nav-buy:active { transform: translateY(0); }
-
-  /* ── HERO ── */
-  .hero {
-    padding: 80px 24px 64px;
-    max-width: 900px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  .hero-eyebrow {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--orange-dim);
-    border: 1px solid var(--orange-glow);
-    border-radius: 100px;
-    padding: 6px 16px;
-    font-family: var(--font-mono);
-    font-size: 12px; font-weight: 600;
-    color: var(--orange);
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    margin-bottom: 28px;
-  }
-  .hero-eyebrow::before { content: '●'; font-size: 8px; }
-  .hero-h1 {
-    font-family: var(--font-display);
-    font-size: clamp(42px, 7vw, 80px);
-    font-weight: 700;
-    line-height: 1.0;
-    letter-spacing: -2px;
-    margin-bottom: 24px;
-  }
-  .hero-h1 .mono-accent {
-    font-family: var(--font-mono);
-    color: var(--orange);
-    font-size: clamp(18px, 3vw, 32px);
-    font-weight: 600;
-    letter-spacing: .02em;
-    display: block;
-    margin-bottom: 8px;
-  }
-  .hero-sub {
-    font-size: clamp(16px, 2vw, 20px);
-    color: var(--text-muted);
-    max-width: 560px;
-    margin: 0 auto 40px;
-    line-height: 1.7;
-  }
-  .hero-sub strong { color: var(--text-primary); }
-  .hero-cta-row {
-    display: flex; align-items: center; justify-content: center;
-    gap: 16px; flex-wrap: wrap;
-    margin-bottom: 56px;
-  }
-  .btn-primary {
-    background: var(--orange);
-    color: #fff;
-    border: none;
-    border-radius: var(--r);
-    padding: 16px 36px;
-    font-family: var(--font-display);
-    font-size: 17px; font-weight: 700;
-    cursor: pointer;
-    transition: background .15s, transform .1s, box-shadow .15s;
-    text-decoration: none;
-    display: inline-block;
-    box-shadow: 0 4px 24px var(--orange-glow);
-  }
-  .btn-primary:hover { background: #c94408; transform: translateY(-2px); box-shadow: 0 8px 32px var(--orange-glow); }
-  .btn-primary:active { transform: translateY(0); }
-  .btn-secondary {
-    color: var(--text-muted);
-    font-size: 15px;
-    font-family: var(--font-body);
-  }
-  .hero-stats {
-    display: flex; justify-content: center; gap: 0;
-    border: 1px solid var(--navy-border);
-    border-radius: var(--r);
-    overflow: hidden;
-    max-width: 540px;
-    margin: 0 auto;
-  }
-  .hero-stat {
-    flex: 1;
-    padding: 20px 16px;
-    text-align: center;
-    border-right: 1px solid var(--navy-border);
-    background: var(--navy-card);
-  }
-  .hero-stat:last-child { border-right: none; }
-  .hero-stat-val {
-    font-family: var(--font-mono);
-    font-size: 26px; font-weight: 600;
-    color: var(--orange);
-    display: block; margin-bottom: 4px;
-  }
-  .hero-stat-lbl {
-    font-size: 11px; color: var(--text-muted);
-    text-transform: uppercase; letter-spacing: .08em;
-  }
-
-  /* ── TICKER ── */
-  .ticker {
-    background: var(--navy-card);
-    border-top: 1px solid var(--navy-border);
-    border-bottom: 1px solid var(--navy-border);
-    padding: 14px 0;
-    overflow: hidden;
-  }
-  .ticker-inner {
-    display: flex; gap: 48px;
-    animation: ticker 22s linear infinite;
-    width: max-content;
-  }
-  .ticker-item {
-    display: flex; align-items: center; gap: 10px;
-    font-family: var(--font-mono);
-    font-size: 13px; color: var(--text-muted);
-    white-space: nowrap;
-  }
-  .ticker-item span { color: var(--orange); font-weight: 600; }
-  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-  /* ── SECTIONS ── */
-  section { padding: 80px 24px; max-width: 900px; margin: 0 auto; }
-  .sect-label {
-    font-family: var(--font-mono);
-    font-size: 11px; font-weight: 600;
-    color: var(--orange);
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-  }
-  .sect-title {
-    font-family: var(--font-display);
-    font-size: clamp(28px, 4vw, 42px);
-    font-weight: 700;
-    letter-spacing: -1px;
-    line-height: 1.1;
-    margin-bottom: 16px;
-  }
-  .sect-sub {
-    color: var(--text-muted);
-    font-size: 17px;
-    max-width: 560px;
-    margin-bottom: 48px;
-    line-height: 1.7;
-  }
-
-  /* ── DOMAINS ── */
-  .domains-grid {
-    display: grid; gap: 16px;
-  }
-  .domain-card {
-    background: var(--navy-card);
-    border: 1px solid var(--navy-border);
-    border-radius: var(--r);
-    padding: 28px;
-    transition: border-color .2s;
-  }
-  .domain-card:hover { border-color: var(--orange-glow); }
-  .domain-header {
-    display: flex; align-items: flex-start;
-    justify-content: space-between; gap: 16px;
-    margin-bottom: 16px;
-  }
-  .domain-name {
-    font-family: var(--font-display);
-    font-size: 17px; font-weight: 600;
-    line-height: 1.3;
-  }
-  .domain-pct {
-    font-family: var(--font-mono);
-    font-size: 28px; font-weight: 600;
-    color: var(--orange);
-    white-space: nowrap; flex-shrink: 0;
-  }
-  .domain-bar-track {
-    height: 4px;
-    background: var(--navy-border);
-    border-radius: 2px;
-    overflow: hidden;
-    margin-bottom: 16px;
-  }
-  .domain-bar-fill {
-    height: 100%;
-    background: var(--orange);
-    border-radius: 2px;
-    width: 0;
-    transition: width 1s cubic-bezier(.4,0,.2,1);
-  }
-  .domain-topics {
-    display: flex; flex-wrap: wrap; gap: 8px;
-  }
-  .domain-pill {
-    background: var(--orange-dim);
-    border: 1px solid var(--orange-glow);
-    border-radius: 100px;
-    padding: 4px 12px;
-    font-size: 12px;
-    color: var(--text-muted);
-  }
-
-  /* ── FEATURES ── */
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 16px;
-  }
-  .feat-card {
-    background: var(--navy-card);
-    border: 1px solid var(--navy-border);
-    border-radius: var(--r);
-    padding: 28px 24px;
-    transition: border-color .2s, transform .15s;
-  }
-  .feat-card:hover { border-color: var(--orange-glow); transform: translateY(-2px); }
-  .feat-icon {
-    font-size: 28px;
-    margin-bottom: 16px;
-    display: block;
-  }
-  .feat-title {
-    font-family: var(--font-display);
-    font-size: 16px; font-weight: 600;
-    margin-bottom: 8px;
-  }
-  .feat-desc {
-    font-size: 14px;
-    color: var(--text-muted);
-    line-height: 1.6;
-  }
-
-  /* ── HOW IT WORKS ── */
-  .how-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 24px;
-  }
-  .how-step {
-    position: relative;
-    padding-left: 20px;
-  }
-  .how-num {
-    font-family: var(--font-mono);
-    font-size: 11px; font-weight: 600;
-    color: var(--orange);
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-  }
-  .how-title {
-    font-family: var(--font-display);
-    font-size: 16px; font-weight: 600;
-    margin-bottom: 6px;
-  }
-  .how-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
-
-  /* ── OFFLINE BADGE ── */
-  .offline-strip {
-    background: var(--navy-card);
-    border: 1px solid var(--navy-border);
-    border-radius: var(--r);
-    padding: 28px 32px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-top: 48px;
-    flex-wrap: wrap;
-  }
-  .offline-icon { font-size: 32px; flex-shrink: 0; }
-  .offline-text strong {
-    font-family: var(--font-display);
-    font-size: 16px; font-weight: 600;
-    display: block; margin-bottom: 4px;
-  }
-  .offline-text span { font-size: 14px; color: var(--text-muted); }
-
-  /* ── BOTTOM CTA ── */
-  .cta-section {
-    text-align: center;
-    padding: 80px 24px 100px;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  .cta-price {
-    font-family: var(--font-mono);
-    font-size: 14px; font-weight: 600;
-    color: var(--orange);
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-  }
-  .cta-headline {
-    font-family: var(--font-display);
-    font-size: clamp(28px, 4vw, 48px);
-    font-weight: 700;
-    letter-spacing: -1.5px;
-    line-height: 1.1;
-    margin-bottom: 20px;
-  }
-  .cta-sub {
-    color: var(--text-muted);
-    font-size: 17px;
-    margin-bottom: 40px;
-    line-height: 1.7;
-  }
-  .cta-guarantee {
-    margin-top: 20px;
-    font-size: 13px;
-    color: var(--text-dim);
-    display: flex; align-items: center; justify-content: center; gap: 6px;
-  }
-
-  /* ── DIVIDER ── */
-  .divider {
-    height: 1px;
-    background: var(--navy-border);
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  /* ── FOOTER ── */
-  footer {
-    padding: 32px 24px;
-    text-align: center;
-    font-size: 13px;
-    color: var(--text-dim);
-    border-top: 1px solid var(--navy-border);
-  }
-  footer strong { color: var(--text-muted); }
-
-  /* ── PREREQ BANNER ── */
-  .prereq {
-    background: rgba(26,47,80,.6);
-    border: 1px solid var(--navy-border);
-    border-radius: var(--r-sm);
-    padding: 14px 20px;
-    font-size: 13px;
-    color: var(--text-muted);
-    margin-top: 20px;
-    display: inline-flex; align-items: center; gap: 8px;
-    max-width: 560px;
-  }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 600px) {
-    nav { padding: 12px 16px; }
-    .hero { padding: 48px 16px 48px; }
-    .hero-stats { flex-wrap: wrap; }
-    section { padding: 56px 16px; }
-    .offline-strip { flex-direction: column; text-align: center; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .ticker-inner { animation: none; }
-    .domain-bar-fill { transition: none; }
-    * { transition-duration: .01ms !important; }
-  }
-
-  /* ── SCROLL ANIMATIONS ── */
-  .reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity .5s ease, transform .5s ease;
-  }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-</style>
-<!-- Gumroad overlay: powers the floating checkout when a-tags below are clicked -->
-<script src="https://gumroad.com/js/gumroad.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=DM+Sans:wght@900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/css/style.css">
 </head>
 <body>
 
-<!-- NAV -->
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3.5v5.5c0 5-3.4 8.7-8 9.5-4.6-.8-8-4.5-8-9.5V6.5L12 3z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-plane" viewBox="0 0 24 24"><path d="M12 2v20M12 2l-6 6M12 2l6 6M4 13l16-3M4 13l4 5M20 13l-4 5"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="1.5"/><path d="M8 11V7a4 4 0 018 0v4"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1.5"/><line x1="9" y1="3" x2="9" y2="21"/></symbol>
+  <symbol id="i-book-open" viewBox="0 0 24 24"><path d="M12 6c-1.8-1.3-4-2-6.5-2C4.7 4 4 4.7 4 5.5V18c0 .8.7 1.5 1.5 1.5 2.5 0 4.7.7 6.5 2 1.8-1.3 4-2 6.5-2 .8 0 1.5-.7 1.5-1.5V5.5c0-.8-.7-1.5-1.5-1.5-2.5 0-4.7.7-6.5 2z"/><line x1="12" y1="6" x2="12" y2="20"/></symbol>
+  <symbol id="i-pencil" viewBox="0 0 24 24"><path d="M4 20l1-4L16 5l3 3L8 19l-4 1z"/><line x1="14" y1="7" x2="17" y2="10"/></symbol>
+  <symbol id="i-clipboard" viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="17" rx="1.5"/><rect x="9" y="2.5" width="6" height="3" rx="1"/><line x1="9" y1="10.5" x2="15" y2="10.5"/><line x1="9" y1="14.5" x2="15" y2="14.5"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-warning" viewBox="0 0 24 24"><path d="M12 4l9 16H3L12 4z"/><line x1="12" y1="10" x2="12" y2="14.5"/><circle cx="12" cy="17.3" r="0.7" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+</svg>
+
 <nav>
   <a href="/" class="nav-logo">
     <img src="../../assets/img/briefcasego-lockup-horizontal.svg" alt="BriefcaseGo" class="nav-logo-lockup">
   </a>
+  <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
   <div class="nav-links">
     <a href="/">Home</a>
-    <a href="/blog/">Blog</a>
+    <a href="/apps/aaism/" class="active">AI Security Management Prep</a>
+    <a href="/blog/">Insights</a>
     <a href="/about/">About</a>
-  </div>
-  <div class="nav-right">
-    <a class="nav-buy" data-gumroad-action="buy" href="https://briefcasego.gumroad.com/l/qzhhoz?wanted=true" target="_blank" rel="noopener">Buy — $9.99</a>
   </div>
 </nav>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-eyebrow">AAISM™ Certification Prep</div>
-  <h1 class="hero-h1">
-    <span class="mono-accent">AI Security</span>
-    Management Prep
-  </h1>
-  <p class="hero-sub">
-    <strong>The AAISM™ Study App — prep for the AAISM™ exam, Advanced in AI Security Management.</strong><br>
-    300 quiz questions, a full study guide, glossary, and a 90-question simulated exam — built for studying on your phone or tablet, and works offline after your first visit.
-  </p>
-  <div class="hero-cta-row">
-    <a class="btn-primary" data-gumroad-action="buy" href="https://briefcasego.gumroad.com/l/qzhhoz?wanted=true" target="_blank" rel="noopener">Get the App — $9.99</a>
-  </div>
-
-  <div style="display:flex;justify-content:center;margin-top:20px;">
-    <div class="prereq">⚠️ Prerequisite: Active CISM or CISSP certification required to sit the AAISM™ exam.</div>
-  </div>
-</div>
-
-<!-- TICKER -->
-<div class="ticker" aria-hidden="true">
-  <div class="ticker-inner" id="ticker">
-    <div class="ticker-item">90 Questions <span>·</span></div>
-    <div class="ticker-item">2.5 Hour Exam <span>·</span></div>
-    <div class="ticker-item">450 / 900 to Pass <span>·</span></div>
-    <div class="ticker-item">3 Exam Domains <span>·</span></div>
-    <div class="ticker-item">No Internet Required <span>·</span></div>
-    <div class="ticker-item">Optimized for Mobile <span>·</span></div>
-    <div class="ticker-item">Instant Access <span>·</span></div>
-    <div class="ticker-item">Domain Explanations <span>·</span></div>
-    <div class="ticker-item">90 Questions <span>·</span></div>
-    <div class="ticker-item">2.5 Hour Exam <span>·</span></div>
-    <div class="ticker-item">450 / 900 to Pass <span>·</span></div>
-    <div class="ticker-item">3 Exam Domains <span>·</span></div>
-    <div class="ticker-item">No Internet Required <span>·</span></div>
-    <div class="ticker-item">Optimized for Mobile <span>·</span></div>
-    <div class="ticker-item">Instant Access <span>·</span></div>
-    <div class="ticker-item">Domain Explanations <span>·</span></div>
-  </div>
-</div>
-
-<!-- DOMAINS -->
-<section id="domains">
-  <div class="sect-label">Exam Coverage</div>
-  <h2 class="sect-title">All three domains.<br>Clearly mapped out.</h2>
-  <p class="sect-sub">The AAISM™ exam tests governance, risk, and technical controls. Every question in the app maps to a specific domain — so you know where you stand.</p>
-  <div class="domains-grid">
-    <div class="domain-card reveal">
-      <div class="domain-header">
-        <div class="domain-name">Domain 1 — AI Governance &amp; Program Management</div>
-        <div class="domain-pct">31%</div>
-      </div>
-      <div class="domain-bar-track"><div class="domain-bar-fill" data-width="31"></div></div>
-      <div class="domain-topics">
-        <span class="domain-pill">AI Governance</span>
-        <span class="domain-pill">Stakeholder Management</span>
-        <span class="domain-pill">AI Strategy &amp; Policy</span>
-        <span class="domain-pill">AUP</span>
-        <span class="domain-pill">Incident Response</span>
-        <span class="domain-pill">Business Continuity</span>
-      </div>
+<section class="hero" style="padding:88px 0 0;border-bottom:none;text-align:center">
+  <div class="wrap">
+    <div class="eyebrow" style="display:inline-flex;justify-content:center"><span class="dot"></span>AAISM™ Certification Prep</div>
+    <h1 style="font-size:50px">AI Security Management Prep</h1>
+    <p class="subline">Here's your study companion for the AAISM™ exam.</p>
+    <p class="lede" style="margin-left:auto;margin-right:auto">300 quiz questions, a full study guide, glossary, and a 90-question simulated exam — built for studying on your phone or tablet, and works offline after your first visit.</p>
+    <div style="text-align:center;margin-bottom:32px">
+      <a class="btn btn-primary" href="https://briefcasego.gumroad.com/l/qzhhoz?wanted=true">Get the App — $9.99</a>
     </div>
-    <div class="domain-card reveal">
-      <div class="domain-header">
-        <div class="domain-name">Domain 2 — AI Risk Management</div>
-        <div class="domain-pct">31%</div>
-      </div>
-      <div class="domain-bar-track"><div class="domain-bar-fill" data-width="31"></div></div>
-      <div class="domain-topics">
-        <span class="domain-pill">Risk Identification</span>
-        <span class="domain-pill">NIST AI RMF</span>
-        <span class="domain-pill">EU AI Act</span>
-        <span class="domain-pill">Threat Modeling</span>
-        <span class="domain-pill">OWASP LLM Top 10</span>
-        <span class="domain-pill">Vendor Management</span>
-      </div>
-    </div>
-    <div class="domain-card reveal">
-      <div class="domain-header">
-        <div class="domain-name">Domain 3 — AI Technologies &amp; Controls</div>
-        <div class="domain-pct">38%</div>
-      </div>
-      <div class="domain-bar-track"><div class="domain-bar-fill" data-width="38"></div></div>
-      <div class="domain-topics">
-        <span class="domain-pill">ML Lifecycle</span>
-        <span class="domain-pill">Data Governance</span>
-        <span class="domain-pill">Privacy Controls</span>
-        <span class="domain-pill">HITL</span>
-        <span class="domain-pill">Zero Trust for AI</span>
-        <span class="domain-pill">Shadow AI</span>
-        <span class="domain-pill">Model Drift</span>
-      </div>
+    <div class="warning-banner" style="margin-left:auto;margin-right:auto;text-align:left">
+      <svg class="icon" viewBox="0 0 24 24"><use href="#i-warning"/></svg>
+      <p><strong>Prerequisite:</strong> Active CISM or CISSP certification required to sit the AAISM™ exam.</p>
     </div>
   </div>
-  <p style="margin-top:24px;font-size:14px;color:var(--text-muted);">Want the full breakdown? Read the <a href="/blog/aaism-certification-study-guide/" style="color:var(--orange);">AAISM Certification Study Guide</a>.</p>
-</section>
-
-<div class="divider"></div>
-
-<!-- FEATURES -->
-<section id="features">
-  <div class="sect-label">What's Inside</div>
-  <h2 class="sect-title">Four study tools.<br>One app.</h2>
-  <p class="sect-sub">Everything you need to prepare — no subscriptions, no accounts, no waiting for content to load.</p>
-  <div class="features-grid">
-    <div class="feat-card reveal">
-      <span class="feat-icon">📘</span>
-      <div class="feat-title">Study Guide</div>
-      <div class="feat-desc">Comprehensive domain-by-domain notes covering every testable concept. Search and jump to any topic instantly.</div>
-    </div>
-    <div class="feat-card reveal">
-      <span class="feat-icon">📖</span>
-      <div class="feat-title">Glossary</div>
-      <div class="feat-desc">Searchable reference for key AI security terms. From adversarial ML to zero trust — every term you'll see on exam day.</div>
-    </div>
-    <div class="feat-card reveal">
-      <span class="feat-icon">✏️</span>
-      <div class="feat-title">Quiz Mode</div>
-      <div class="feat-desc">Filter by domain and difficulty across 300 questions. Instant feedback with full explanations after every answer. Study the gaps, not the whole.</div>
-    </div>
-    <div class="feat-card reveal">
-      <span class="feat-icon">📋</span>
-      <div class="feat-title">Practice Test</div>
-      <div class="feat-desc">Full 90-question simulated exam, distributed across the three major domain areas. See your score and review every missed question.</div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- INTERACTIVE DEMO -->
-<section id="demo">
-  <div class="sect-label">Try It Now</div>
-  <h2 class="sect-title">See exactly what<br>you're getting.</h2>
-  <p class="sect-sub">Real questions from the app. Select an answer to see instant feedback and full explanations.</p>
-
-  <!-- TAB NAV -->
-  <div class="demo-tabs">
-    <button class="demo-tab active" onclick="switchTab('quiz')">✏️ Quiz Mode</button>
-    <button class="demo-tab" onclick="switchTab('guide')">📘 Study Guide</button>
-    <button class="demo-tab" onclick="switchTab('glossary')">📖 Glossary</button>
-  </div>
-
-  <!-- QUIZ DEMO -->
-  <div id="tab-quiz" class="demo-panel">
-    <div class="quiz-meta">
-      <span class="quiz-label" id="q-counter">Q1 / 3</span>
-      <span class="quiz-badge d2">D2</span>
-      <span class="quiz-badge medium">Medium</span>
-    </div>
-    <div class="quiz-progress-track"><div class="quiz-progress-fill" id="q-progress" style="width:33%"></div></div>
-
-    <div id="quiz-container"></div>
-
-    <div id="quiz-explanation" class="quiz-explanation" style="display:none"></div>
-
-    <button class="quiz-next-btn" id="quiz-next" style="display:none" onclick="nextQuestion()">Next Question →</button>
-    <div id="quiz-done" style="display:none" class="quiz-done-msg">
-      <div class="quiz-done-icon">🎯</div>
-      <div class="quiz-done-title">That's a taste of Quiz Mode.</div>
-      <div class="quiz-done-sub">300 questions across all 3 domains. Filter by difficulty. Get full explanations every time.</div>
-      <a class="btn-primary" data-gumroad-action="buy" href="https://briefcasego.gumroad.com/l/qzhhoz?wanted=true" target="_blank" rel="noopener" style="margin-top:20px;display:inline-block">Get Full Access — $9.99</a>
-    </div>
-  </div>
-
-  <!-- STUDY GUIDE DEMO -->
-  <div id="tab-guide" class="demo-panel" style="display:none">
-    <div class="guide-preview">
-      <div class="guide-header">📘 Study Guide</div>
-      <div class="guide-sub">Tap any section to expand</div>
-      <div class="guide-section">
-        <button class="guide-sec-btn" onclick="toggleGuide(this)">
-          <span>Core AI &amp; ML Concepts — Foundational Terminology</span>
-          <span class="guide-chev">+</span>
-        </button>
-        <div class="guide-sec-body" style="display:none">
-          <p class="guide-p">The AAISM™ exam tests your understanding of fundamental AI and machine learning concepts. Master the terminology in this section — these definitions appear throughout all three domains.</p>
-          <div class="guide-h3">ML Paradigms</div>
-          <ul class="guide-ul">
-            <li><strong>Supervised learning</strong> — Uses labeled data to predict known targets (classification and regression).</li>
-            <li><strong>Unsupervised learning</strong> — Finds patterns with no labels (clustering, anomaly detection).</li>
-            <li><strong>Reinforcement learning</strong> — Agent learns by trial-and-error with rewards in an environment.</li>
-          </ul>
-          <div class="guide-callout"><strong>Overfitting vs. Underfitting</strong> — Overfitting: model memorizes training data, fails on new data. Underfitting: model too simple, poor on both. Know these cold for the exam.</div>
-        </div>
+  <div class="stat-ticker" aria-label="Key exam stats">
+    <div class="stat-ticker-track">
+      <div class="stat-ticker-set">
+        <span class="stat-pill">90 Questions</span>
+        <span class="stat-pill">2.5 Hour Exam</span>
+        <span class="stat-pill">450 / 900 to Pass</span>
+        <span class="stat-pill">3 Exam Domains</span>
+        <span class="stat-pill">No Internet Required</span>
+        <span class="stat-pill">Optimized for Mobile</span>
+        <span class="stat-pill">Instant Access</span>
+        <span class="stat-pill">Domain Explanations</span>
       </div>
-      <div class="guide-section">
-        <button class="guide-sec-btn" onclick="toggleGuide(this)">
-          <span>Domain 1 — AI Governance &amp; Program Management (31%)</span>
-          <span class="guide-chev">+</span>
-        </button>
-        <div class="guide-sec-body" style="display:none">
-          <div class="guide-callout"><strong>Exam Weight:</strong> Covers stakeholder considerations, AI strategies, policies, asset/data lifecycle, security program development, and business continuity.</div>
-          <div class="guide-h3">Key AI Governance Components</div>
-          <ul class="guide-ul">
-            <li>Mature IT governance processes covering stakeholder needs and compliance monitoring</li>
-            <li>Appropriate governance structures: board of directors, IT strategy committee, risk/audit committees</li>
-            <li><strong>The governing body is ultimately responsible and accountable — this cannot be delegated</strong></li>
-          </ul>
-          <div class="guide-h3">EU AI Act Risk Tiers</div>
-          <ul class="guide-ul">
-            <li><strong>Unacceptable Risk</strong> — Prohibited (social credit scoring, behavioral manipulation)</li>
-            <li><strong>High Risk</strong> — Strict oversight required (healthcare, law enforcement)</li>
-            <li><strong>Limited Risk</strong> — Transparency obligations (chatbots must disclose they are AI)</li>
-            <li><strong>Minimal Risk</strong> — No specific obligations (spam filters)</li>
-          </ul>
-        </div>
-      </div>
-      <div class="guide-section">
-        <button class="guide-sec-btn" onclick="toggleGuide(this)">
-          <span>Domain 2 — AI Risk Management (31%)</span>
-          <span class="guide-chev">+</span>
-        </button>
-        <div class="guide-sec-body" style="display:none">
-          <div class="guide-callout"><strong>Exam Weight:</strong> Covers AI risk frameworks, threat modeling, OWASP LLM Top 10, and vendor/supply chain management.</div>
-          <div class="guide-h3">NIST AI RMF — Four Core Functions</div>
-          <ul class="guide-ul">
-            <li><strong>GOVERN</strong> — Establishes risk policies and accountability structures</li>
-            <li><strong>MAP</strong> — Identifies AI system characteristics and risk areas</li>
-            <li><strong>MEASURE</strong> — Analyzes, assesses, and benchmarks AI risks</li>
-            <li><strong>MANAGE</strong> — Prioritizes and addresses identified risks; responds and recovers</li>
-          </ul>
-        </div>
-      </div>
-      <div class="guide-locked">
-        <div class="guide-locked-icon">🔒</div>
-        <div class="guide-locked-text">Domain 3, Quick Reference, and more — unlocked with purchase</div>
-        <a class="btn-primary" data-gumroad-action="buy" href="https://briefcasego.gumroad.com/l/qzhhoz?wanted=true" target="_blank" rel="noopener" style="margin-top:16px;display:inline-block;font-size:15px;padding:13px 28px">Get Full Access — $9.99</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- GLOSSARY DEMO -->
-  <div id="tab-glossary" class="demo-panel" style="display:none">
-    <div class="guide-preview">
-      <div class="guide-header">📖 Glossary</div>
-      <div class="guide-sub">120 key terms, searchable across all domains</div>
-      <div class="gloss-search-row">
-        <input type="text" id="gloss-input" class="gloss-input" placeholder="Search terms..." oninput="filterGloss(this.value)">
-      </div>
-      <div id="gloss-list">
-        <div class="gloss-term" data-term="adversarial examples">
-          <div class="gloss-name">Adversarial Examples <span class="quiz-badge d3" style="font-size:10px;padding:2px 7px">D3</span></div>
-          <div class="gloss-def">Carefully crafted inputs designed to cause a model to make a mistake. Subtle modifications to data (e.g., images, text) that are imperceptible to humans but cause the AI to misclassify or produce incorrect outputs.</div>
-        </div>
-        <div class="gloss-term" data-term="ai charter">
-          <div class="gloss-name">AI Charter <span class="quiz-badge d1" style="font-size:10px;padding:2px 7px">D1</span></div>
-          <div class="gloss-def">A formal document defining the scope, objectives, stakeholders, governance structure, risk management plan, success metrics, and approval signatures for an AI program.</div>
-        </div>
-        <div class="gloss-term" data-term="ai governance">
-          <div class="gloss-name">AI Governance <span class="quiz-badge d1" style="font-size:10px;padding:2px 7px">D1</span></div>
-          <div class="gloss-def">The senior oversight, processes, standards, and safeguards that ensure safe and ethical use of AI — addressing inherent flaws from human-created AI, including bias and discrimination.</div>
-        </div>
-        <div class="gloss-term" data-term="data poisoning">
-          <div class="gloss-name">Data Poisoning <span class="quiz-badge d2" style="font-size:10px;padding:2px 7px">D2</span></div>
-          <div class="gloss-def">An attack where malicious data is injected into training datasets to introduce backdoors, manipulate model behavior, or sabotage model performance. A primary supply chain risk for AI systems.</div>
-        </div>
-        <div class="gloss-term" data-term="hitl human in the loop">
-          <div class="gloss-name">Human-in-the-Loop (HITL) <span class="quiz-badge d3" style="font-size:10px;padding:2px 7px">D3</span></div>
-          <div class="gloss-def">A safety control requiring human oversight and final decision authority over AI outputs. Essential for high-stakes decisions in healthcare, law enforcement, and financial lending.</div>
-        </div>
-        <div class="gloss-term" data-term="model drift">
-          <div class="gloss-name">Model Drift <span class="quiz-badge d3" style="font-size:10px;padding:2px 7px">D3</span></div>
-          <div class="gloss-def">The degradation of an ML model's performance over time as real-world data distributions change or the relationship between inputs and outputs shifts. Requires continuous monitoring and periodic retraining.</div>
-        </div>
-        <div class="gloss-term" data-term="prompt injection">
-          <div class="gloss-name">Prompt Injection <span class="quiz-badge d2" style="font-size:10px;padding:2px 7px">D2</span></div>
-          <div class="gloss-def">An attack that overrides or manipulates an LLM's system instructions by embedding malicious content in user inputs. Listed as the #1 risk in the OWASP Top 10 for LLMs.</div>
-        </div>
-        <div class="gloss-term" data-term="zero trust ai">
-          <div class="gloss-name">Zero Trust (AI) <span class="quiz-badge d3" style="font-size:10px;padding:2px 7px">D3</span></div>
-          <div class="gloss-def">A principle that AI decisions are NOT automatically assumed to be correct. Three areas: Ability (can the AI perform its task?), Integrity (will data be processed correctly?), Benevolence (does it adhere to do-no-harm principles?).</div>
-        </div>
-      </div>
-      <div class="guide-locked" style="margin-top:16px">
-        <div class="guide-locked-icon">🔒</div>
-        <div class="guide-locked-text">112 more terms unlocked with purchase</div>
-        <a class="btn-primary" data-gumroad-action="buy" href="https://briefcasego.gumroad.com/l/qzhhoz?wanted=true" target="_blank" rel="noopener" style="margin-top:16px;display:inline-block;font-size:15px;padding:13px 28px">Get Full Access — $9.99</a>
+      <div class="stat-ticker-set" aria-hidden="true">
+        <span class="stat-pill">90 Questions</span>
+        <span class="stat-pill">2.5 Hour Exam</span>
+        <span class="stat-pill">450 / 900 to Pass</span>
+        <span class="stat-pill">3 Exam Domains</span>
+        <span class="stat-pill">No Internet Required</span>
+        <span class="stat-pill">Optimized for Mobile</span>
+        <span class="stat-pill">Instant Access</span>
+        <span class="stat-pill">Domain Explanations</span>
       </div>
     </div>
   </div>
 </section>
 
-<style>
-/* ── DEMO TABS ── */
-.demo-tabs {
-  display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap;
-}
-.demo-tab {
-  background: var(--navy-card);
-  border: 1px solid var(--navy-border);
-  border-radius: var(--r-sm);
-  padding: 10px 20px;
-  font-family: var(--font-display);
-  font-size: 14px; font-weight: 600;
-  color: var(--text-muted);
-  cursor: pointer;
-  transition: all .15s;
-}
-.demo-tab.active, .demo-tab:hover {
-  background: var(--orange-dim);
-  border-color: var(--orange-glow);
-  color: var(--text-primary);
-}
-
-/* ── QUIZ ── */
-.quiz-meta {
-  display: flex; align-items: center; gap: 10px; margin-bottom: 10px;
-}
-.quiz-label {
-  font-family: var(--font-mono); font-size: 13px; color: var(--text-muted);
-  margin-right: auto;
-}
-.quiz-badge {
-  border-radius: 100px; padding: 3px 10px;
-  font-family: var(--font-mono); font-size: 12px; font-weight: 600;
-}
-.quiz-badge.d1 { background: rgba(37,99,235,.15); color: #60a5fa; border: 1px solid rgba(37,99,235,.3); }
-.quiz-badge.d2 { background: rgba(13,148,136,.15); color: #34d399; border: 1px solid rgba(13,148,136,.3); }
-.quiz-badge.d3 { background: rgba(139,92,246,.15); color: #a78bfa; border: 1px solid rgba(139,92,246,.3); }
-.quiz-badge.medium { background: rgba(234,179,8,.1); color: #fbbf24; border: 1px solid rgba(234,179,8,.25); }
-.quiz-badge.hard { background: rgba(239,68,68,.1); color: #f87171; border: 1px solid rgba(239,68,68,.25); }
-.quiz-badge.easy { background: rgba(34,197,94,.1); color: #4ade80; border: 1px solid rgba(34,197,94,.25); }
-
-.quiz-progress-track {
-  height: 3px; background: var(--navy-border); border-radius: 2px;
-  overflow: hidden; margin-bottom: 24px;
-}
-.quiz-progress-fill {
-  height: 100%; background: var(--orange); border-radius: 2px;
-  transition: width .4s ease;
-}
-.quiz-question {
-  font-size: 16px; line-height: 1.7; color: var(--text-primary);
-  margin-bottom: 20px; font-weight: 500;
-}
-.quiz-options { display: flex; flex-direction: column; gap: 10px; }
-.quiz-option {
-  display: flex; align-items: flex-start; gap: 14px;
-  background: var(--navy-card);
-  border: 1px solid var(--navy-border);
-  border-radius: var(--r);
-  padding: 14px 16px;
-  cursor: pointer;
-  transition: border-color .15s, background .15s;
-  text-align: left; width: 100%;
-}
-.quiz-option:hover:not(:disabled) {
-  border-color: rgba(240,244,255,.2);
-  background: rgba(240,244,255,.04);
-}
-.quiz-option:disabled { cursor: default; }
-.quiz-option.correct { border-color: #22c55e; background: rgba(34,197,94,.08); }
-.quiz-option.incorrect { border-color: #ef4444; background: rgba(239,68,68,.08); }
-.quiz-option.dimmed { opacity: .45; }
-.quiz-opt-letter {
-  width: 28px; height: 28px; border-radius: 50%;
-  background: var(--navy-border);
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-mono); font-size: 12px; font-weight: 700;
-  flex-shrink: 0; color: var(--text-muted);
-}
-.quiz-option.correct .quiz-opt-letter { background: #22c55e; color: #fff; }
-.quiz-option.incorrect .quiz-opt-letter { background: #ef4444; color: #fff; }
-.quiz-opt-text { font-size: 14px; line-height: 1.6; color: var(--text-primary); padding-top: 3px; }
-
-.quiz-explanation {
-  margin-top: 16px;
-  border-radius: var(--r);
-  padding: 16px 18px;
-  font-size: 14px; line-height: 1.7;
-}
-.quiz-explanation.correct-exp {
-  background: rgba(34,197,94,.08);
-  border: 1px solid rgba(34,197,94,.25);
-  color: #86efac;
-}
-.quiz-explanation.incorrect-exp {
-  background: rgba(239,68,68,.08);
-  border: 1px solid rgba(239,68,68,.25);
-  color: #fca5a5;
-}
-.quiz-explanation strong { color: #fff; display: block; margin-bottom: 6px; }
-
-.quiz-next-btn {
-  margin-top: 16px;
-  background: #3b6ef5;
-  color: #fff;
-  border: none;
-  border-radius: var(--r);
-  padding: 14px 28px;
-  font-family: var(--font-display);
-  font-size: 15px; font-weight: 600;
-  cursor: pointer;
-  width: 100%;
-  transition: background .15s;
-}
-.quiz-next-btn:hover { background: #2d5de0; }
-
-.quiz-done-msg {
-  text-align: center; padding: 40px 20px;
-}
-.quiz-done-icon { font-size: 48px; margin-bottom: 16px; }
-.quiz-done-title {
-  font-family: var(--font-display);
-  font-size: 22px; font-weight: 700; margin-bottom: 10px;
-}
-.quiz-done-sub { font-size: 15px; color: var(--text-muted); max-width: 400px; margin: 0 auto; }
-
-/* ── GUIDE / GLOSSARY ── */
-.guide-preview {
-  background: var(--navy-card);
-  border: 1px solid var(--navy-border);
-  border-radius: var(--r);
-  overflow: hidden;
-}
-.guide-header {
-  font-family: var(--font-display);
-  font-size: 18px; font-weight: 700;
-  padding: 20px 20px 4px;
-}
-.guide-sub {
-  font-size: 13px; color: var(--text-muted);
-  padding: 0 20px 16px;
-  border-bottom: 1px solid var(--navy-border);
-}
-.guide-section { border-bottom: 1px solid var(--navy-border); }
-.guide-sec-btn {
-  width: 100%; display: flex; align-items: center;
-  justify-content: space-between; gap: 12px;
-  padding: 16px 20px;
-  background: none; border: none;
-  font-family: var(--font-display);
-  font-size: 14px; font-weight: 600;
-  color: var(--text-primary);
-  cursor: pointer; text-align: left;
-  transition: background .15s;
-}
-.guide-sec-btn:hover { background: rgba(240,244,255,.04); }
-.guide-chev { color: var(--orange); font-size: 18px; flex-shrink: 0; }
-.guide-sec-body {
-  padding: 0 20px 20px;
-  font-size: 14px; color: var(--text-muted); line-height: 1.7;
-}
-.guide-p { margin: 8px 0; }
-.guide-h3 {
-  font-family: var(--font-display);
-  font-size: 13px; font-weight: 600;
-  color: #60a5fa; margin: 14px 0 8px;
-}
-.guide-ul { padding-left: 18px; }
-.guide-ul li { margin-bottom: 6px; }
-.guide-ul li strong { color: var(--text-primary); }
-.guide-callout {
-  background: var(--navy-deep);
-  border-left: 3px solid #3b6ef5;
-  border-radius: 0 var(--r-sm) var(--r-sm) 0;
-  padding: 10px 14px;
-  margin: 12px 0;
-  font-size: 13px; color: var(--text-muted); line-height: 1.6;
-}
-.guide-callout strong { color: var(--text-primary); }
-.guide-locked {
-  padding: 28px 20px; text-align: center;
-  border-top: 1px solid var(--navy-border);
-  background: rgba(11,22,40,.5);
-}
-.guide-locked-icon { font-size: 24px; margin-bottom: 8px; }
-.guide-locked-text { font-size: 14px; color: var(--text-muted); }
-
-/* ── GLOSSARY ── */
-.gloss-search-row { padding: 16px 20px; border-bottom: 1px solid var(--navy-border); }
-.gloss-input {
-  width: 100%;
-  background: var(--navy-deep);
-  border: 1px solid var(--navy-border);
-  border-radius: var(--r-sm);
-  padding: 10px 14px;
-  font-family: var(--font-body);
-  font-size: 14px; color: var(--text-primary);
-  outline: none;
-  transition: border-color .15s;
-}
-.gloss-input:focus { border-color: var(--orange-glow); }
-.gloss-term {
-  padding: 14px 20px;
-  border-bottom: 1px solid var(--navy-border);
-}
-.gloss-term:last-child { border-bottom: none; }
-.gloss-name {
-  font-family: var(--font-display);
-  font-size: 15px; font-weight: 600;
-  margin-bottom: 5px;
-  display: flex; align-items: center; gap: 8px;
-}
-.gloss-def { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
-</style>
-
-<div class="divider"></div>
-
-<!-- HOW IT WORKS -->
-<section id="how">
-  <div class="sect-label">How It Works</div>
-  <h2 class="sect-title">Unlock once.<br>Study anywhere.</h2>
-  <p class="sect-sub">Built for study on the go. Install it to your home screen on iPhone or iPad for the full app experience — or use it right in your browser on Mac and PC.</p>
-  <div class="how-grid">
-    <div class="how-step reveal">
-      <div class="how-num">Step 01</div>
-      <div class="how-title">Purchase &amp; Unlock</div>
-      <div class="how-desc">Complete checkout on Gumroad. You'll get a license key by email — enter it at aaism.briefcasego.com to unlock the app.</div>
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow"><span class="dot"></span>Exam Coverage</div>
+      <h2>All three domains. Clearly <em>mapped out.</em></h2>
+      <p>The AAISM™ exam tests governance, risk, and technical controls. Every question in the app maps to a specific domain — so you know where you stand.</p>
     </div>
-    <div class="how-step reveal">
-      <div class="how-num">Step 02</div>
-      <div class="how-title">Open &amp; Install</div>
-      <div class="how-desc">Visit aaism.briefcasego.com and enter your license key. On iPhone or iPad, add it to your home screen from Safari for the full app experience.</div>
+    <div class="domain-grid">
+      <div class="domain-card">
+        <div class="d-num">Domain 1</div>
+        <h4>AI Governance &amp; Program Management</h4>
+        <div class="progress-track"><div class="progress-fill" style="width:31%" data-fill="31"></div></div>
+        <span class="d-pct">31% of exam</span>
+        <div class="tag-row">
+          <span class="tag-pill">AI Governance</span>
+          <span class="tag-pill">Stakeholder Management</span>
+          <span class="tag-pill">AI Strategy &amp; Policy</span>
+          <span class="tag-pill">AUP</span>
+          <span class="tag-pill">Incident Response</span>
+          <span class="tag-pill">Business Continuity</span>
+        </div>
+      </div>
+      <div class="domain-card">
+        <div class="d-num">Domain 2</div>
+        <h4>AI Risk Management</h4>
+        <div class="progress-track"><div class="progress-fill" style="width:31%" data-fill="31"></div></div>
+        <span class="d-pct">31% of exam</span>
+        <div class="tag-row">
+          <span class="tag-pill">Risk Identification</span>
+          <span class="tag-pill">NIST AI RMF</span>
+          <span class="tag-pill">EU AI Act</span>
+          <span class="tag-pill">Threat Modeling</span>
+          <span class="tag-pill">OWASP LLM Top 10</span>
+          <span class="tag-pill">Vendor Management</span>
+        </div>
+      </div>
+      <div class="domain-card">
+        <div class="d-num">Domain 3</div>
+        <h4>AI Technologies &amp; Controls</h4>
+        <div class="progress-track"><div class="progress-fill" style="width:38%" data-fill="38"></div></div>
+        <span class="d-pct">38% of exam</span>
+        <div class="tag-row">
+          <span class="tag-pill">ML Lifecycle</span>
+          <span class="tag-pill">Data Governance</span>
+          <span class="tag-pill">Privacy Controls</span>
+          <span class="tag-pill">HITL</span>
+          <span class="tag-pill">Zero Trust for AI</span>
+          <span class="tag-pill">Shadow AI</span>
+          <span class="tag-pill">Model Drift</span>
+        </div>
+      </div>
     </div>
-    <div class="how-step reveal">
-      <div class="how-num">Step 03</div>
-      <div class="how-title">Study on Your Schedule</div>
-      <div class="how-desc">Quiz yourself, read the study guide, look up terms, and run full practice tests — on a plane, at a hotel, anywhere.</div>
-    </div>
+    <p class="coverage-link">Want the full breakdown? Read the <a href="/blog/aaism-certification-study-guide/">AAISM Certification Study Guide</a>.</p>
   </div>
-  <div class="offline-strip reveal">
-    <div class="offline-icon">✈️</div>
-    <div class="offline-text">
-      <strong>Works offline after your first visit</strong>
-      <span>The app caches itself for offline use. No tracking, no expiry date.</span>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow"><span class="dot"></span>What's Inside</div>
+      <h2>Four study tools. <em>One app.</em></h2>
+      <p>Everything you need to prepare — no subscriptions, no accounts, no waiting for content to load.</p>
+    </div>
+    <div class="inside-grid">
+      <div class="inside-card">
+        <div class="icon-plate"><svg class="icon" viewBox="0 0 24 24"><use href="#i-book"/></svg></div>
+        <h4>Study Guide</h4>
+        <p>Comprehensive domain-by-domain notes covering every testable concept. Search and jump to any topic instantly.</p>
+      </div>
+      <div class="inside-card">
+        <div class="icon-plate"><svg class="icon" viewBox="0 0 24 24"><use href="#i-book-open"/></svg></div>
+        <h4>Glossary</h4>
+        <p>Searchable reference for key AI security terms. From adversarial ML to zero trust — every term you'll see on exam day.</p>
+      </div>
+      <div class="inside-card">
+        <div class="icon-plate"><svg class="icon" viewBox="0 0 24 24"><use href="#i-pencil"/></svg></div>
+        <h4>Quiz Mode</h4>
+        <p>Filter by domain and difficulty across 300 questions. Instant feedback with full explanations after every answer. Study the gaps, not the whole.</p>
+      </div>
+      <div class="inside-card">
+        <div class="icon-plate"><svg class="icon" viewBox="0 0 24 24"><use href="#i-clipboard"/></svg></div>
+        <h4>Practice Test</h4>
+        <p>Full 90-question simulated exam, distributed across the three major domain areas. See your score and review every missed question.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow"><span class="dot"></span>Try It Now</div>
+      <h2>See exactly what <em>you're getting.</em></h2>
+      <p>Real questions from the app. Click Quiz Mode, Study Guide, or Glossary to explore — select an answer to see instant feedback and full explanations.</p>
+    </div>
 
-<!-- BOTTOM CTA -->
-<div class="cta-section">
-  <div class="cta-price reveal">One-time purchase · $9.99</div>
-  <h2 class="cta-headline reveal">Ready to prep for<br>the AAISM™ exam?</h2>
-  <p class="cta-sub reveal">Join cybersecurity and GRC professionals preparing for the AAISM™ exam. Unlock once, study on your terms.</p>
-  <a class="btn-primary reveal" data-gumroad-action="buy" href="https://briefcasego.gumroad.com/l/qzhhoz?wanted=true" target="_blank" rel="noopener" style="font-size:18px;padding:18px 48px;">
-    Get the App — $9.99
-  </a>
-  <div class="cta-guarantee reveal">🔒 Secure checkout via Gumroad &nbsp;·&nbsp; Instant license key delivery</div>
-</div>
+    <div class="demo-shell">
+      <div class="tab-row">
+        <button class="tab-item active" data-tab="quiz"><svg class="icon" viewBox="0 0 24 24"><use href="#i-pencil"/></svg><span>Quiz Mode</span></button>
+        <button class="tab-item" data-tab="guide"><svg class="icon" viewBox="0 0 24 24"><use href="#i-book"/></svg><span>Study Guide</span></button>
+        <button class="tab-item" data-tab="glossary"><svg class="icon" viewBox="0 0 24 24"><use href="#i-book-open"/></svg><span>Glossary</span></button>
+      </div>
+      <div class="demo-body">
 
-<!-- FOOTER -->
+        <div class="tab-panel active" id="panel-quiz">
+          <span class="quiz-badge" id="quiz-badge"></span>
+
+          <div class="quiz-q"><h4 id="quiz-question-text"></h4></div>
+          <div class="quiz-opts" id="quiz-opts"></div>
+          <div class="quiz-explain" id="quiz-explain">
+            <p class="lbl">Explanation</p>
+            <p id="quiz-explain-text"></p>
+          </div>
+
+          <div class="demo-next" id="demo-next-btn" role="button" tabindex="0">Next Question →</div>
+
+          <div class="callout-box">
+            <div class="icon-plate"><svg class="icon" viewBox="0 0 24 24"><use href="#i-target"/></svg></div>
+            <div>
+              <h5>That's a taste of Quiz Mode.</h5>
+              <p>300 questions across all 3 domains. Filter by difficulty. Get full explanations every time.</p>
+              <a class="btn-sm" href="https://briefcasego.gumroad.com/l/qzhhoz?wanted=true">Get Full Access — $9.99</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="panel-guide">
+          <div class="demo-subhead">
+            <h3><svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px;color:var(--amber)"><use href="#i-book"/></svg>Study Guide</h3>
+            <span class="hint">Tap any section to expand</span>
+          </div>
+          <div class="accordion">
+            <div class="accordion-item open">
+              <button class="acc-summary">Core AI &amp; ML Concepts — Foundational Terminology <svg class="chev" viewBox="0 0 24 24"><use href="#i-chevron"/></svg></button>
+              <div class="accordion-content-wrap"><div class="accordion-content-inner"><div class="accordion-content">
+                <p>The AAISM™ exam tests your understanding of fundamental AI and machine learning concepts. Master the terminology in this section — these definitions appear throughout all three domains.</p>
+                <h6>ML Paradigms</h6>
+                <ul>
+                  <li><strong>Supervised learning</strong> — Uses labeled data to predict known targets (classification and regression).</li>
+                  <li><strong>Unsupervised learning</strong> — Finds patterns with no labels (clustering, anomaly detection).</li>
+                  <li><strong>Reinforcement learning</strong> — Agent learns by trial-and-error with rewards in an environment.</li>
+                </ul>
+                <p><strong>Overfitting vs. Underfitting</strong> — Overfitting: model memorizes training data, fails on new data. Underfitting: model too simple, poor on both. Know these cold for the exam.</p>
+              </div></div></div>
+            </div>
+            <div class="accordion-item">
+              <button class="acc-summary">Domain 1 — AI Governance &amp; Program Management (31%) <svg class="chev" viewBox="0 0 24 24"><use href="#i-chevron"/></svg></button>
+              <div class="accordion-content-wrap"><div class="accordion-content-inner"><div class="accordion-content">
+                <h6>Exam Weight</h6>
+                <p>Covers stakeholder considerations, AI strategies, policies, asset/data lifecycle, security program development, and business continuity.</p>
+                <h6>Key AI Governance Components</h6>
+                <ul>
+                  <li>Mature IT governance processes covering stakeholder needs and compliance monitoring</li>
+                  <li>Appropriate governance structures: board of directors, IT strategy committee, risk/audit committees</li>
+                  <li><strong>The governing body is ultimately responsible and accountable — this cannot be delegated</strong></li>
+                </ul>
+                <h6>EU AI Act Risk Tiers</h6>
+                <ul>
+                  <li><strong>Unacceptable Risk</strong> — Prohibited (social credit scoring, behavioral manipulation)</li>
+                  <li><strong>High Risk</strong> — Strict oversight required (healthcare, law enforcement)</li>
+                  <li><strong>Limited Risk</strong> — Transparency obligations (chatbots must disclose they are AI)</li>
+                  <li><strong>Minimal Risk</strong> — No specific obligations (spam filters)</li>
+                </ul>
+              </div></div></div>
+            </div>
+            <div class="accordion-item">
+              <button class="acc-summary">Domain 2 — AI Risk Management (31%) <svg class="chev" viewBox="0 0 24 24"><use href="#i-chevron"/></svg></button>
+              <div class="accordion-content-wrap"><div class="accordion-content-inner"><div class="accordion-content">
+                <h6>Exam Weight</h6>
+                <p>Covers AI risk frameworks, threat modeling, OWASP LLM Top 10, and vendor/supply chain management.</p>
+                <h6>NIST AI RMF — Four Core Functions</h6>
+                <ul>
+                  <li><strong>GOVERN</strong> — Establishes risk policies and accountability structures</li>
+                  <li><strong>MAP</strong> — Identifies AI system characteristics and risk areas</li>
+                  <li><strong>MEASURE</strong> — Analyzes, assesses, and benchmarks AI risks</li>
+                  <li><strong>MANAGE</strong> — Prioritizes and addresses identified risks; responds and recovers</li>
+                </ul>
+              </div></div></div>
+            </div>
+          </div>
+          <div class="locked-teaser">
+            <div class="msg"><svg class="icon" viewBox="0 0 24 24"><use href="#i-lock"/></svg>Domain 3, Quick Reference, and more — unlocked with purchase</div>
+            <a class="btn-sm" href="https://briefcasego.gumroad.com/l/qzhhoz?wanted=true">Get Full Access — $9.99</a>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="panel-glossary">
+          <div class="demo-subhead">
+            <h3><svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px;color:var(--amber)"><use href="#i-book-open"/></svg>Glossary</h3>
+            <span class="hint">120 key terms, searchable across all domains</span>
+          </div>
+          <div class="glossary-grid">
+            <div class="term-card">
+              <div class="t-head"><h6>Adversarial Examples</h6><span class="d-tag">D3</span></div>
+              <p>Carefully crafted inputs designed to cause a model to make a mistake. Subtle modifications to data (e.g., images, text) that are imperceptible to humans but cause the AI to misclassify or produce incorrect outputs.</p>
+            </div>
+            <div class="term-card">
+              <div class="t-head"><h6>AI Charter</h6><span class="d-tag">D1</span></div>
+              <p>A formal document defining the scope, objectives, stakeholders, governance structure, risk management plan, success metrics, and approval signatures for an AI program.</p>
+            </div>
+            <div class="term-card">
+              <div class="t-head"><h6>AI Governance</h6><span class="d-tag">D1</span></div>
+              <p>The senior oversight, processes, standards, and safeguards that ensure safe and ethical use of AI — addressing inherent flaws from human-created AI, including bias and discrimination.</p>
+            </div>
+            <div class="term-card">
+              <div class="t-head"><h6>Data Poisoning</h6><span class="d-tag">D2</span></div>
+              <p>An attack where malicious data is injected into training datasets to introduce backdoors, manipulate model behavior, or sabotage model performance. A primary supply chain risk for AI systems.</p>
+            </div>
+            <div class="term-card">
+              <div class="t-head"><h6>Human-in-the-Loop (HITL)</h6><span class="d-tag">D3</span></div>
+              <p>A safety control requiring human oversight and final decision authority over AI outputs. Essential for high-stakes decisions in healthcare, law enforcement, and financial lending.</p>
+            </div>
+            <div class="term-card">
+              <div class="t-head"><h6>Model Drift</h6><span class="d-tag">D3</span></div>
+              <p>The degradation of an ML model's performance over time as real-world data distributions change or the relationship between inputs and outputs shifts. Requires continuous monitoring and periodic retraining.</p>
+            </div>
+            <div class="term-card">
+              <div class="t-head"><h6>Prompt Injection</h6><span class="d-tag">D2</span></div>
+              <p>An attack that overrides or manipulates an LLM's system instructions by embedding malicious content in user inputs. Listed as the #1 risk in the OWASP Top 10 for LLMs.</p>
+            </div>
+            <div class="term-card">
+              <div class="t-head"><h6>Zero Trust (AI)</h6><span class="d-tag">D3</span></div>
+              <p>A principle that AI decisions are NOT automatically assumed to be correct. Three areas: Ability (can the AI perform its task?), Integrity (will data be processed correctly?), Benevolence (does it adhere to do-no-harm principles?).</p>
+            </div>
+          </div>
+          <div class="locked-teaser">
+            <div class="msg"><svg class="icon" viewBox="0 0 24 24"><use href="#i-lock"/></svg>112 more terms unlocked with purchase</div>
+            <a class="btn-sm" href="https://briefcasego.gumroad.com/l/qzhhoz?wanted=true">Get Full Access — $9.99</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="border-bottom:none">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow"><span class="dot"></span>How It Works</div>
+      <h2>Unlock once. <em>Study anywhere.</em></h2>
+      <p>Built for study on the go. Install it to your home screen on iPhone or iPad for the full app experience — or use it right in your browser on Mac and PC.</p>
+    </div>
+    <div class="step-grid">
+      <div class="step-item">
+        <div class="num-plate">01</div>
+        <h4>Purchase &amp; Unlock</h4>
+        <p>Complete checkout on Gumroad. You'll get a license key by email — enter it at aaism.briefcasego.com to unlock the app.</p>
+      </div>
+      <div class="step-item">
+        <div class="num-plate">02</div>
+        <h4>Open &amp; Install</h4>
+        <p>Visit aaism.briefcasego.com and enter your license key. On iPhone or iPad, add it to your home screen from Safari for the full app experience.</p>
+      </div>
+      <div class="step-item">
+        <div class="num-plate">03</div>
+        <h4>Study on Your Schedule</h4>
+        <p>Quiz yourself, read the study guide, look up terms, and run full practice tests — on a plane, at a hotel, anywhere.</p>
+      </div>
+    </div>
+    <div class="callout-box" style="margin-top:0">
+      <div class="icon-plate"><svg class="icon" viewBox="0 0 24 24"><use href="#i-plane"/></svg></div>
+      <div>
+        <h5>Works offline after your first visit</h5>
+        <p style="margin-bottom:0">The app caches itself for offline use. No tracking, no expiry date.</p>
+      </div>
+    </div>
+    <p class="price-note">One-time purchase · <b>$9.99</b></p>
+  </div>
+</section>
+
+<section class="cta-band" style="border-bottom:1px solid var(--hairline)">
+  <div class="wrap">
+    <h2>Ready to prep for the <em>AAISM™ exam?</em></h2>
+    <p>Join cybersecurity and GRC professionals preparing for the AAISM™ exam. Unlock once, study on your terms.</p>
+    <a class="btn btn-primary" href="https://briefcasego.gumroad.com/l/qzhhoz?wanted=true">Get the App — $9.99</a>
+    <div class="secure-note"><svg class="icon" viewBox="0 0 24 24"><use href="#i-lock"/></svg>Secure checkout via Gumroad · Instant license key delivery</div>
+  </div>
+</section>
+
 <footer>
-  <p style="margin-bottom:16px;">
-    <a href="/" style="color:var(--text-muted);text-decoration:none;margin-right:24px;">Home</a>
-    <a href="/blog/" style="color:var(--text-muted);text-decoration:none;margin-right:24px;">Blog</a>
-    <a href="/about/" style="color:var(--text-muted);text-decoration:none;">About</a>
-  </p>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/apps/aaism/">AI Security Management Prep</a>
+    <a href="/blog/">Insights</a>
+    <a href="/about/">About</a>
+  </div>
   <p>A <strong>BriefcaseGo</strong> product — Knowledge on the go, no briefcase required.</p>
-  <p style="margin-top:8px;">This application is an independent study tool and is not affiliated with, sponsored by, or endorsed by ISACA. AAISM™ is a trademark of ISACA. All content, including practice questions and study notes, is original and created solely for educational purposes.</p>
+  <p class="footer-disclaimer">This application is an independent study tool and is not affiliated with, sponsored by, or endorsed by ISACA. AAISM™ is a trademark of ISACA. All content, including practice questions and study notes, is original and created solely for educational purposes.</p>
 </footer>
 
 <script>
-// ── SCROLL REVEAL ──
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      const bar = e.target.querySelector('.domain-bar-fill');
-      if (bar) {
-        const w = bar.getAttribute('data-width');
-        setTimeout(() => { bar.style.width = w + '%'; }, 100);
+  // Mobile nav toggle
+  document.querySelectorAll('.nav-toggle').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var open = btn.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      document.querySelector('.nav-links').classList.toggle('open', open);
+    });
+  });
+
+  // Tab switching (Quiz Mode / Study Guide / Glossary)
+  document.querySelectorAll('.tab-item').forEach(function(tab){
+    tab.addEventListener('click', function(){
+      var shell = tab.closest('.demo-shell');
+      shell.querySelectorAll('.tab-item').forEach(function(t){ t.classList.remove('active'); });
+      tab.classList.add('active');
+      var target = tab.getAttribute('data-tab');
+      shell.querySelectorAll('.tab-panel').forEach(function(p){
+        p.classList.toggle('active', p.id === 'panel-' + target);
+      });
+    });
+  });
+
+  // Accordion expand/collapse
+  document.querySelectorAll('.acc-summary').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      btn.closest('.accordion-item').classList.toggle('open');
+    });
+  });
+
+  // Quiz demo — real questions pulled from the AAISM Study App question bank
+  var DEMO_QUESTIONS = [
+    {
+      d: "D2",
+      diff: "Medium",
+      q: "A deployer organization contracts with a high-risk AI vendor despite documented supply chain concerns because no viable alternative exists. The organization formally documents the risk, establishes quarterly monitoring reviews, and develops a contingency plan for vendor failure. This BEST exemplifies which risk management concept?",
+      opts: [
+        "Risk avoidance applied imperfectly, because a genuine avoidance decision under established governance standards would require the organization to cease procurement of the AI capability entirely, eliminating exposure rather than documenting and retaining it within the risk register",
+        "Risk transfer, because developing a contingency plan reallocates the financial and operational burden of vendor failure onto a dedicated response budget, effectively shifting residual liability away from the primary business unit in a manner analogous to contractual indemnification",
+        "Structured risk acceptance with active management — formally retaining a known risk when mitigation options are exhausted, while ensuring it remains visible and monitored",
+        "Risk mitigation, because implementing quarterly monitoring reviews and a vendor failure contingency plan together constitute a layered control framework that directly reduces the likelihood and probability of supply chain disruption materializing"
+      ],
+      correct: 2,
+      explain: "Structured risk acceptance with active management is correct because the organization formally retains a known, documented risk it cannot eliminate, while maintaining visibility through monitoring and contingency planning — consistent with recognized risk management principles."
+    },
+    {
+      d: "D1",
+      diff: "Easy",
+      q: "What is the PRIMARY purpose of AI governance within an enterprise?",
+      opts: [
+        "To evaluate and select the best-performing AI vendors for procurement",
+        "To ensure safe and ethical AI use through senior oversight, standards, and safeguards that address inherent AI risks",
+        "To write the source code and algorithms that power enterprise AI solutions",
+        "To calculate return on investment for every AI tool deployed across the organization"
+      ],
+      correct: 1,
+      explain: "AI governance encompasses senior oversight, processes, standards, and safeguards ensuring safe and ethical use of AI systems — including addressing inherent flaws like bias and discrimination.\n\nA: Vendor selection is procurement, not governance.\n\nC: Writing algorithms is development, not governance.\n\nD: ROI calculation is financial analysis. The governing body's role is oversight and accountability, not technical implementation or procurement."
+    },
+    {
+      d: "D3",
+      diff: "Medium",
+      q: "An organization deploys an AI writing assistant that generates marketing copy. A governance review finds that the AI occasionally reproduces verbatim paragraphs from copyrighted sources in its training data. Which control MOST directly addresses this risk?",
+      opts: [
+        "Implementing output similarity detection that compares generated content against a database of known copyrighted works before returning results to users",
+        "Retraining the model on a curated dataset that excludes copyrighted material following an established governance framework review, ensuring memorized verbatim reproduction is architecturally eliminated from the model's learned parameters",
+        "Requiring users to perform structured human-in-the-loop (HITL) review of all AI-generated outputs against an organizational acceptable-use policy before any content is published or distributed externally",
+        "Inserting a system prompt directive aligned with the organization's AI governance policy that instructs the model to avoid verbatim reproduction of copyrighted text, enforced through prompt-layer access controls"
+      ],
+      correct: 0,
+      explain: "Output similarity detection (plagiarism detection applied to AI outputs) directly catches verbatim reproduction before it reaches users — enabling flagging, blocking, or requesting regeneration.\n\nB: Retraining with only non-copyrighted data is impractical for capable models and does not fully prevent memorization; governance framework reviews do not substitute for a runtime detective control.\n\nC: Structured HITL review places the detection burden on users who may not reliably recognize verbatim reproduction, making it an incomplete and inconsistent control.\n\nD: System prompt directives are advisory and architecturally unreliable — large language models can reproduce memorized training content despite explicit instructions to the contrary, rendering this a weak preventive control."
+    }
+  ];
+  var LETTERS = ["A", "B", "C", "D"];
+  var qIndex = 0;
+
+  function renderQuestion(){
+    var q = DEMO_QUESTIONS[qIndex];
+    document.getElementById('quiz-badge').innerHTML = 'Q' + (qIndex + 1) + ' / ' + DEMO_QUESTIONS.length + ' · <b>' + q.d + '</b> · ' + q.diff;
+    document.getElementById('quiz-question-text').textContent = q.q;
+
+    var optsWrap = document.getElementById('quiz-opts');
+    optsWrap.innerHTML = '';
+    optsWrap.classList.remove('answered');
+    q.opts.forEach(function(optText, i){
+      var div = document.createElement('div');
+      div.className = 'quiz-opt';
+      var letterSpan = document.createElement('span');
+      letterSpan.className = 'opt-letter';
+      letterSpan.textContent = LETTERS[i];
+      var textSpan = document.createElement('span');
+      textSpan.textContent = optText;
+      div.appendChild(letterSpan);
+      div.appendChild(textSpan);
+      div.addEventListener('click', function(){ selectOption(i); });
+      optsWrap.appendChild(div);
+    });
+
+    document.getElementById('quiz-explain').classList.remove('show');
+    document.getElementById('quiz-explain-text').textContent = q.explain;
+  }
+
+  function selectOption(i){
+    var optsWrap = document.getElementById('quiz-opts');
+    if (optsWrap.classList.contains('answered')) return;
+    optsWrap.classList.add('answered');
+
+    var q = DEMO_QUESTIONS[qIndex];
+    var opts = optsWrap.querySelectorAll('.quiz-opt');
+    opts.forEach(function(opt, idx){
+      if (idx === q.correct){
+        opt.classList.add('correct');
+        opt.insertAdjacentHTML('beforeend', '<svg class="check" viewBox="0 0 24 24"><use href="#i-check"/></svg>');
+      } else if (idx === i){
+        opt.classList.add('incorrect');
+        opt.insertAdjacentHTML('beforeend', '<svg class="cross" viewBox="0 0 24 24"><use href="#i-x"/></svg>');
       }
-      observer.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.15 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    });
 
-// ── DEMO TABS ──
-function switchTab(tab) {
-  ['quiz','guide','glossary'].forEach(t => {
-    document.getElementById('tab-' + t).style.display = t === tab ? 'block' : 'none';
-  });
-  document.querySelectorAll('.demo-tab').forEach((btn, i) => {
-    btn.classList.toggle('active', ['quiz','guide','glossary'][i] === tab);
-  });
-}
-
-// ── QUIZ DATA ──
-const QUESTIONS = [
-  {
-    text: "The NIST AI RMF MANAGE function involves which primary activities?",
-    domain: "D2", difficulty: "medium",
-    options: [
-      "Establishing risk governance policies and accountability structures through board-level oversight, RACI frameworks, and AI ethics charters",
-      "Identifying AI system context, cataloging affected stakeholder populations, and assessing potential harms across demographic groups",
-      "Measuring and benchmarking AI risks by applying quantitative indicators such as KRIs and fairness metrics",
-      "Prioritizing identified risks, implementing treatment plans, monitoring for changes, and managing incident response and recovery"
-    ],
-    correct: 3,
-    explanation: {
-      verdict: "✓ CORRECT!",
-      css: "correct-exp",
-      text: "MANAGE takes the outputs of MAP and MEASURE and converts them into action: prioritizing risks by severity, implementing treatment plans (mitigation, transfer, acceptance, avoidance), monitoring for changes to risk levels, and managing response and recovery when AI incidents occur.",
-      others: [
-        "A: Establishing governance policies and accountability structures describes the GOVERN function.",
-        "B: Identifying system context and mapping potential harms describes the MAP function.",
-        "C: Measuring and benchmarking risks using KRIs and fairness metrics describes the MEASURE function."
-      ]
-    }
-  },
-  {
-    text: "User and Entity Behavior Analytics (UEBA) in AI-enhanced security operations PRIMARILY enables:",
-    domain: "D3", difficulty: "easy",
-    options: [
-      "Blocking all AI-generated content from entering enterprise networks to prevent AI-enabled phishing",
-      "Automatically patching AI model vulnerabilities when anomalous behavior is detected in production systems",
-      "Detecting anomalous patterns in user and system behavior by analyzing large volumes of activity data — enabling early detection of insider threats and account compromises that deviate from established baselines",
-      "Enforcing AI acceptable use policies by tracking which AI tools each employee accesses and flagging policy violations"
-    ],
-    correct: 2,
-    explanation: {
-      verdict: "✓ CORRECT!",
-      css: "correct-exp",
-      text: "UEBA uses AI to analyze user and entity behavior at scale, establishing behavioral baselines and detecting anomalous deviations that may indicate insider threats, compromised accounts, or malicious activity.",
-      others: [
-        "A: Network content filtering is a different security control.",
-        "B: Automated patching is a vulnerability management function.",
-        "D: AUP enforcement tracking is a policy management function — UEBA focuses on behavioral anomaly detection, not policy tracking."
-      ]
-    }
-  },
-  {
-    text: "An organization's AI system for fraud detection begins producing significantly more false positives six months after deployment, despite no changes to the model or its configuration. What is the MOST likely cause?",
-    domain: "D3", difficulty: "medium",
-    options: [
-      "The model was subjected to a prompt injection attack that altered its classification thresholds",
-      "Model drift has occurred as real-world transaction patterns have shifted away from the patterns in the original training data",
-      "The training data contained insufficient samples of fraudulent transactions, causing systematic underfitting",
-      "The model's vendor has remotely updated the inference engine without notifying the deploying organization"
-    ],
-    correct: 1,
-    explanation: {
-      verdict: "✓ CORRECT!",
-      css: "correct-exp",
-      text: "Model drift occurs when real-world data distributions change over time, degrading model performance. A surge in false positives after months of stable operation — with no configuration changes — is the classic signature of concept drift, where evolving transaction patterns no longer match what the model learned during training.",
-      others: [
-        "A: Prompt injection targets LLMs through input manipulation, not fraud detection classifiers.",
-        "C: Underfitting would have been evident at deployment, not six months later.",
-        "D: Reputable AI vendors do not silently modify deployed inference engines."
-      ]
-    }
+    document.getElementById('quiz-explain').classList.add('show');
   }
-];
 
-let currentQ = 0;
-let answered = false;
+  function nextQuestion(){
+    qIndex = (qIndex + 1) % DEMO_QUESTIONS.length;
+    renderQuestion();
+  }
 
-function renderQuestion() {
-  const q = QUESTIONS[currentQ];
-  answered = false;
-
-  // Update meta
-  document.getElementById('q-counter').textContent = `Q${currentQ + 1} / ${QUESTIONS.length}`;
-  document.getElementById('q-progress').style.width = ((currentQ + 1) / QUESTIONS.length * 100) + '%';
-
-  // Update badges
-  const badges = document.querySelectorAll('#tab-quiz .quiz-badge');
-  badges[0].textContent = q.domain;
-  badges[0].className = 'quiz-badge ' + q.domain.toLowerCase();
-  badges[1].textContent = q.difficulty.charAt(0).toUpperCase() + q.difficulty.slice(1);
-  badges[1].className = 'quiz-badge ' + q.difficulty;
-
-  // Render
-  const container = document.getElementById('quiz-container');
-  container.innerHTML = `
-    <div class="quiz-question">${q.text}</div>
-    <div class="quiz-options">
-      ${q.options.map((opt, i) => `
-        <button class="quiz-option" onclick="selectAnswer(${i})" data-idx="${i}">
-          <span class="quiz-opt-letter">${String.fromCharCode(65+i)}</span>
-          <span class="quiz-opt-text">${opt}</span>
-        </button>
-      `).join('')}
-    </div>
-  `;
-
-  document.getElementById('quiz-explanation').style.display = 'none';
-  document.getElementById('quiz-explanation').className = 'quiz-explanation';
-  document.getElementById('quiz-next').style.display = 'none';
-  document.getElementById('quiz-done').style.display = 'none';
-}
-
-function selectAnswer(idx) {
-  if (answered) return;
-  answered = true;
-
-  const q = QUESTIONS[currentQ];
-  const options = document.querySelectorAll('.quiz-option');
-  const isCorrect = idx === q.correct;
-
-  options.forEach((opt, i) => {
-    opt.disabled = true;
-    if (i === q.correct) opt.classList.add('correct');
-    else if (i === idx && !isCorrect) opt.classList.add('incorrect');
-    else opt.classList.add('dimmed');
+  var nextBtn = document.getElementById('demo-next-btn');
+  nextBtn.addEventListener('click', nextQuestion);
+  nextBtn.addEventListener('keydown', function(e){
+    if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); nextQuestion(); }
   });
 
-  const expEl = document.getElementById('quiz-explanation');
-  expEl.className = 'quiz-explanation ' + q.explanation.css;
-  expEl.innerHTML = `
-    <strong>${q.explanation.verdict}</strong>
-    ${q.explanation.text}
-    ${q.explanation.others.length ? '<div style="margin-top:10px;opacity:.8">' + q.explanation.others.map(o => `<div style="margin-top:6px">• ${o}</div>`).join('') + '</div>' : ''}
-  `;
-  expEl.style.display = 'block';
-
-  if (currentQ < QUESTIONS.length - 1) {
-    document.getElementById('quiz-next').style.display = 'block';
-  } else {
-    document.getElementById('quiz-done').style.display = 'block';
-  }
-}
-
-function nextQuestion() {
-  currentQ++;
   renderQuestion();
-}
 
-// ── STUDY GUIDE ACCORDION ──
-function toggleGuide(btn) {
-  const body = btn.nextElementSibling;
-  const chev = btn.querySelector('.guide-chev');
-  const open = body.style.display !== 'none';
-  body.style.display = open ? 'none' : 'block';
-  chev.textContent = open ? '+' : '−';
-}
+  // Scroll-reveal + domain progress-bar gauge fill
+  (function(){
+    var revealSelector = '.section-head,.flagship-panel,.panel-card,.feature-item,.domain-card,.inside-card,.demo-shell,.step-item,.callout-box,.prose,.post-row';
+    var revealEls = document.querySelectorAll(revealSelector);
 
-// ── GLOSSARY FILTER ──
-function filterGloss(val) {
-  const terms = document.querySelectorAll('.gloss-term');
-  const q = val.toLowerCase().trim();
-  terms.forEach(t => {
-    t.style.display = (!q || t.dataset.term.includes(q) || t.textContent.toLowerCase().includes(q)) ? 'block' : 'none';
-  });
-}
+    // Reset progress bars to 0 so they can animate up like a gauge
+    var fills = document.querySelectorAll('.progress-fill[data-fill]');
+    fills.forEach(function(el){ el.style.width = '0%'; });
 
-// Init
-renderQuestion();
+    function fillBar(card){
+      var fill = card.querySelector ? card.querySelector('.progress-fill[data-fill]') : null;
+      if (fill){
+        var pct = fill.getAttribute('data-fill');
+        requestAnimationFrame(function(){ fill.style.width = pct + '%'; });
+      }
+    }
+
+    if (!('IntersectionObserver' in window)){
+      revealEls.forEach(function(el){ el.classList.add('reveal-in'); });
+      fills.forEach(function(el){ el.style.width = el.getAttribute('data-fill') + '%'; });
+      return;
+    }
+
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add('reveal-in');
+          fillBar(entry.target);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+    revealEls.forEach(function(el){ io.observe(el); });
+  })();
 </script>
+
 </body>
 </html>

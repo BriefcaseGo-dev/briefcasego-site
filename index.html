@@ -3,386 +3,212 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BriefcaseGo — Knowledge on the go, no briefcase required</title>
+<title>BriefcaseGo — Knowledge on the go</title>
 <link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-<meta name="description" content="BriefcaseGo makes offline-capable study and learning apps for busy professionals — starting with the AAISM™ exam prep app.">
+<meta name="description" content="BriefcaseGo builds focused, offline-first study apps for busy professionals. Start with AI Security Management Prep — 300 questions, a full study guide, and a simulated exam for the AAISM™ certification.">
+<link rel="canonical" href="https://briefcasego.com/">
+<meta property="og:title" content="BriefcaseGo — Knowledge on the go">
+<meta property="og:description" content="Focused, offline-first study apps for busy professionals. Start with AI Security Management Prep for the AAISM™ exam.">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=DM+Sans:wght@900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=DM+Sans:wght@900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
-<style>
-  /* ── HOMEPAGE HERO ── */
-  .hero {
-    padding: 90px 24px 70px;
-    max-width: 920px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  .hero-h1 {
-    font-family: var(--font-display);
-    font-size: clamp(44px, 8vw, 86px);
-    font-weight: 700;
-    line-height: 1.0;
-    letter-spacing: -2px;
-    margin-bottom: 24px;
-  }
-  .hero-h1 span { color: var(--orange); }
-  .hero-sub {
-    font-size: clamp(16px, 2vw, 20px);
-    color: var(--text-muted);
-    max-width: 580px;
-    margin: 0 auto 40px;
-    line-height: 1.7;
-  }
-  .hero-sub strong { color: var(--text-primary); }
-  .hero-cta-row {
-    display: flex; align-items: center; justify-content: center;
-    gap: 16px; flex-wrap: wrap;
-    margin-bottom: 16px;
-  }
-  .hero-tagline {
-    font-family: var(--font-mono);
-    font-size: 13px;
-    color: var(--text-dim);
-    letter-spacing: .04em;
-    margin-top: 28px;
-  }
-
-  /* ── FLAGSHIP PRODUCT CARD ── */
-  .flagship {
-    background: var(--navy-card);
-    border: 1px solid var(--navy-border);
-    border-radius: 20px;
-    padding: 48px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .flagship::before {
-    content: '';
-    position: absolute;
-    top: -100px; right: -100px;
-    width: 300px; height: 300px;
-    background: radial-gradient(circle, var(--orange-dim) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .flagship-eyebrow {
-    font-family: var(--font-mono);
-    font-size: 11px; font-weight: 600;
-    color: var(--orange);
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    margin-bottom: 14px;
-  }
-  .flagship-title {
-    font-family: var(--font-display);
-    font-size: clamp(24px, 3vw, 32px);
-    font-weight: 700;
-    letter-spacing: -.5px;
-    line-height: 1.15;
-    margin-bottom: 14px;
-  }
-  .flagship-desc {
-    color: var(--text-muted);
-    font-size: 15px;
-    line-height: 1.7;
-    margin-bottom: 24px;
-  }
-  .flagship-stats {
-    display: flex; gap: 28px;
-    margin-bottom: 28px;
-    flex-wrap: wrap;
-  }
-  .flagship-stat-val {
-    font-family: var(--font-mono);
-    font-size: 22px; font-weight: 600;
-    color: var(--orange);
-    display: block;
-  }
-  .flagship-stat-lbl {
-    font-size: 11px; color: var(--text-muted);
-    text-transform: uppercase; letter-spacing: .06em;
-  }
-  .flagship-actions { display: flex; gap: 14px; flex-wrap: wrap; }
-  .flagship-visual {
-    background: var(--navy-deep);
-    border: 1px solid var(--navy-border);
-    border-radius: var(--r);
-    padding: 24px;
-    font-family: var(--font-mono);
-    font-size: 13px;
-  }
-  .flagship-visual-row {
-    display: flex; justify-content: space-between;
-    gap: 12px;
-    flex-wrap: wrap;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--navy-border);
-    color: var(--text-muted);
-  }
-  .flagship-visual-row:last-child { border-bottom: none; }
-  .flagship-visual-row span:last-child { color: var(--orange); font-weight: 600; }
-
-  @media (max-width: 800px) {
-    .flagship { grid-template-columns: 1fr; padding: 32px 24px; }
-  }
-
-  /* ── ROADMAP / COMING SOON GRID ── */
-  .roadmap-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
-  }
-  .roadmap-card {
-    background: var(--navy-card);
-    border: 1px solid var(--navy-border);
-    border-radius: var(--r);
-    padding: 28px 24px;
-    position: relative;
-  }
-  .roadmap-icon {
-    font-size: 26px;
-    margin-bottom: 16px;
-    display: block;
-  }
-  .roadmap-title {
-    font-family: var(--font-display);
-    font-size: 16px; font-weight: 600;
-    margin-bottom: 8px;
-  }
-  .roadmap-desc {
-    font-size: 14px;
-    color: var(--text-muted);
-    line-height: 1.6;
-    margin-bottom: 16px;
-  }
-  .roadmap-status {
-    font-family: var(--font-mono);
-    font-size: 10px; font-weight: 600;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-    display: inline-block;
-    border: 1px solid var(--navy-border);
-    border-radius: 100px;
-    padding: 4px 12px;
-  }
-  .roadmap-status.live { color: var(--orange); border-color: var(--orange-glow); }
-
-  /* ── WHY GRID ── */
-  .why-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
-  }
-  .why-card {
-    padding: 0;
-  }
-  .why-icon { font-size: 26px; margin-bottom: 16px; display: block; }
-  .why-title {
-    font-family: var(--font-display);
-    font-size: 16px; font-weight: 600;
-    margin-bottom: 8px;
-  }
-  .why-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
-
-  /* ── BOTTOM CTA ── */
-  .cta-section {
-    text-align: center;
-    padding: 80px 24px 100px;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  .cta-headline {
-    font-family: var(--font-display);
-    font-size: clamp(28px, 4vw, 44px);
-    font-weight: 700;
-    letter-spacing: -1.5px;
-    line-height: 1.1;
-    margin-bottom: 20px;
-  }
-  .cta-sub {
-    color: var(--text-muted);
-    font-size: 17px;
-    margin-bottom: 36px;
-    line-height: 1.7;
-  }
-</style>
 </head>
 <body>
 
-<!-- NAV -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="12" rx="1.5"/><path d="M8 7V5.5C8 4.67 8.67 4 9.5 4h5c.83 0 1.5.67 1.5 1.5V7"/><line x1="3" y1="12.5" x2="21" y2="12.5"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z"/></symbol>
+    <symbol id="i-music" viewBox="0 0 24 24"><circle cx="7" cy="18" r="2.6"/><circle cx="18" cy="16" r="2.6"/><path d="M9.6 18V6.5L20.6 4v11.5"/></symbol>
+    <symbol id="i-ball" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 8.2l3.4 2.5-1.3 4h-4.2l-1.3-4L12 8.2z"/><path d="M12 3.5v4.7M4.2 9.3l4.7 1.4M6.4 19.3l2.1-4.5M17.6 19.3l-2.1-4.5M19.8 9.3l-4.7 1.4"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M4.2 12H8M16 12h3.8M6.3 6.3l2.6 2.6M15.1 15.1l2.6 2.6M17.7 6.3l-2.6 2.6M8.9 15.1l-2.6 2.6"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><path d="M3 7.5L12 3l9 4.5-9 4.5-9-4.5z"/><path d="M3 7.5v9L12 21l9-4.5v-9"/><line x1="12" y1="12" x2="12" y2="21"/></symbol>
+    <symbol id="i-plane" viewBox="0 0 24 24"><path d="M21 3L11 13M21 3l-6.5 18-3.5-8-8-3.5L21 3z"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V7.5a4 4 0 0 1 8 0V11"/></symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3 12l9-9h6v6l-9 9-6-6z"/><circle cx="15" cy="6" r="1.3"/></symbol>
+  </defs>
+</svg>
+
 <nav>
   <a href="/" class="nav-logo">
     <img src="assets/img/briefcasego-lockup-horizontal.svg" alt="BriefcaseGo" class="nav-logo-lockup">
   </a>
+  <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
   <div class="nav-links">
-    <a href="apps/aaism/">AI Security Management Prep</a>
-    <a href="blog/">Blog</a>
-    <a href="about/">About</a>
-  </div>
-  <div class="nav-right">
-    <a class="nav-cta" href="apps/aaism/">View the App</a>
+    <a href="/" class="active">Home</a>
+    <a href="/apps/aaism/">AI Security Management Prep</a>
+    <a href="/blog/">Insights</a>
+    <a href="/about/">About</a>
   </div>
 </nav>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="pill dot center" style="display:inline-flex;margin-bottom:28px;">Independent Study &amp; Learning Apps</div>
-  <h1 class="hero-h1">Knowledge on<br>the <span>go</span>.</h1>
-  <p class="hero-sub">
-    <strong>No briefcase required.</strong><br>
-    BriefcaseGo builds focused, offline-first study tools for busy professionals — web apps you unlock once and use on iPhone, iPad, Mac, and PC — online or off.
-  </p>
-  <div class="hero-cta-row">
-    <a class="btn-primary" href="apps/aaism/">Explore AI Security Management Prep</a>
-    <a class="btn-secondary" href="about/">About BriefcaseGo</a>
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot"></span>Independent Study &amp; Learning Apps</div>
+    <h1>Knowledge on<br>the go. <em>No briefcase<br>required.</em></h1>
+    <p class="lede">BriefcaseGo builds focused, offline-first study tools for busy professionals — web apps you unlock once and use on iPhone, iPad, Mac, and PC — online or off.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="/apps/aaism/">Explore AI Security Management Prep</a>
+      <a class="btn btn-secondary" href="/about/">About BriefcaseGo</a>
+    </div>
   </div>
-</div>
+</section>
 
-<div class="divider"></div>
-
-<!-- FLAGSHIP PRODUCT -->
-<section id="flagship">
-  <div class="sect-label">Flagship Product</div>
-  <h2 class="sect-title">Built for the exam.<br>Built to actually work.</h2>
-  <p class="sect-sub">Our first release is a complete, offline study app for the AAISM™ certification — built by someone who took and passed the exam.</p>
-
-  <div class="flagship reveal">
-    <div class="flagship-content">
-      <div class="flagship-eyebrow">AAISM™ Certification Prep</div>
-      <h3 class="flagship-title">AI Security Management Prep</h3>
-      <p class="flagship-desc">300 practice questions, a full study guide, a 120-term glossary, and a weighted 90-question simulated exam — all in a lightweight web app that installs to your home screen and works completely offline.</p>
-      <div class="flagship-stats">
-        <div>
-          <span class="flagship-stat-val">300</span>
-          <span class="flagship-stat-lbl">Questions</span>
-        </div>
-        <div>
-          <span class="flagship-stat-val">120</span>
-          <span class="flagship-stat-lbl">Glossary Terms</span>
-        </div>
-        <div>
-          <span class="flagship-stat-val">3</span>
-          <span class="flagship-stat-lbl">Exam Domains</span>
+<section>
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot"></span>Flagship Product</div>
+    <div class="flagship-panel" style="margin-top:24px">
+      <div>
+        <h3>Built for the exam. Built to actually work.</h3>
+        <p>Our first release is a complete, offline study app for the AAISM™ certification — built by someone who took and passed the exam.</p>
+        <h4 class="product-name">AI Security Management Prep</h4>
+        <p>300 practice questions, a full study guide, a 120-term glossary, and a weighted 90-question simulated exam — all in a lightweight web app that installs to your home screen and works completely offline.</p>
+        <div class="stat-row">
+          <div class="stat-box"><div class="stat-num">300</div><div class="stat-label">Questions</div></div>
+          <div class="stat-box"><div class="stat-num">120</div><div class="stat-label">Glossary Terms</div></div>
+          <div class="stat-box"><div class="stat-num">3</div><div class="stat-label">Exam Domains</div></div>
         </div>
       </div>
-      <div class="flagship-actions">
-        <a class="btn-primary" href="apps/aaism/">View the App — $9.99</a>
+      <div>
+        <div class="spec-list">
+          <div class="spec-row"><span class="k">Format</span><span class="v">Web app - no install</span></div>
+          <div class="spec-row"><span class="k">Connection</span><span class="v">100% Offline after setup</span></div>
+          <div class="spec-row"><span class="k">Account required</span><span class="v">None</span></div>
+          <div class="spec-row"><span class="k">Expiry</span><span class="v">Never</span></div>
+          <div class="spec-row" style="border-bottom:none"><span class="k">Works on</span><span class="v">iPhone, iPad, Mac, and PC</span></div>
+        </div>
+        <a class="btn btn-primary" href="https://briefcasego.gumroad.com/l/qzhhoz?wanted=true" style="margin-top:26px;width:100%;justify-content:center">View the App — $9.99</a>
       </div>
     </div>
-    <div class="flagship-visual">
-      <div class="flagship-visual-row"><span>Format</span><span>Web app - no install</span></div>
-      <div class="flagship-visual-row"><span>Connection</span><span>100% Offline after setup</span></div>
-      <div class="flagship-visual-row"><span>Account required</span><span>None</span></div>
-      <div class="flagship-visual-row"><span>Expiry</span><span>Never</span></div>
-      <div class="flagship-visual-row"><span>Works on</span><span>iPhone, iPad, Mac, and PC</span></div>
+  </div>
+</section>
+
+<section class="next-section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow"><span class="dot"></span>What's Next</div>
+      <h2>More on-the-go <em>learning</em> is coming.</h2>
+      <p>AI Security Management Prep is just the start. BriefcaseGo is building a small family of focused, offline-first apps for people who want to learn in spare moments — not scroll through one more bloated platform.</p>
+    </div>
+    <div class="grid-4">
+      <div class="panel-card">
+        <div class="panel-card-top">
+          <div class="icon-plate"><svg class="icon" style="width:18px;height:18px"><use href="#i-shield"/></svg></div>
+          <div class="status-toggle"><div class="led-dot on"></div><span>Exploring</span></div>
+        </div>
+        <h4>More Certification Prep</h4>
+        <p>Additional professional certification study apps, built with the same offline-capable approach.</p>
+      </div>
+      <div class="panel-card">
+        <div class="panel-card-top">
+          <div class="icon-plate"><svg class="icon" style="width:18px;height:18px"><use href="#i-music"/></svg></div>
+          <div class="status-toggle"><div class="led-dot"></div><span>Coming Soon</span></div>
+        </div>
+        <h4>Music</h4>
+        <p>A lightweight, on-the-go music learning or trivia experience.</p>
+      </div>
+      <div class="panel-card">
+        <div class="panel-card-top">
+          <div class="icon-plate"><svg class="icon" style="width:18px;height:18px"><use href="#i-ball"/></svg></div>
+          <div class="status-toggle"><div class="led-dot"></div><span>Coming Soon</span></div>
+        </div>
+        <h4>Soccer</h4>
+        <p>Trivia and knowledge-building for soccer fans, in the same quick-hit format.</p>
+      </div>
+      <div class="panel-card">
+        <div class="panel-card-top">
+          <div class="icon-plate"><svg class="icon" style="width:18px;height:18px"><use href="#i-spark"/></svg></div>
+          <div class="status-toggle"><div class="led-dot"></div><span>Coming Soon</span></div>
+        </div>
+        <h4>General Trivia</h4>
+        <p>Bite-sized trivia for curious minds — no account, no ads, no subscription.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- ROADMAP -->
-<section id="roadmap">
-  <div class="sect-label">What's Next</div>
-  <h2 class="sect-title">More on-the-go<br>learning is coming.</h2>
-  <p class="sect-sub">AAISM™ prep is just the start. BriefcaseGo is building a small family of focused, offline-first apps for people who want to learn in spare moments — not scroll through one more bloated platform.</p>
-  <div class="roadmap-grid">
-    <div class="roadmap-card reveal">
-      <span class="roadmap-icon">🛡️</span>
-      <div class="roadmap-title">More Certification Prep</div>
-      <div class="roadmap-desc">Additional professional certification study apps, built with the same offline-capable approach.</div>
-      <span class="roadmap-status">Exploring</span>
+<section style="border-bottom:none">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow"><span class="dot"></span>Why BriefcaseGo</div>
+      <h2>Simple <em>by</em> design.</h2>
+      <p>Every BriefcaseGo app follows the same philosophy: unlock once, own it forever, use it anywhere.</p>
     </div>
-    <div class="roadmap-card reveal">
-      <span class="roadmap-icon">🎵</span>
-      <div class="roadmap-title">Music</div>
-      <div class="roadmap-desc">A lightweight, on-the-go music learning or trivia experience.</div>
-      <span class="roadmap-status">Coming Soon</span>
-    </div>
-    <div class="roadmap-card reveal">
-      <span class="roadmap-icon">⚽</span>
-      <div class="roadmap-title">Soccer</div>
-      <div class="roadmap-desc">Trivia and knowledge-building for soccer fans, in the same quick-hit format.</div>
-      <span class="roadmap-status">Coming Soon</span>
-    </div>
-    <div class="roadmap-card reveal">
-      <span class="roadmap-icon">🧠</span>
-      <div class="roadmap-title">General Trivia</div>
-      <div class="roadmap-desc">Bite-sized trivia for curious minds — no account, no ads, no subscription.</div>
-      <span class="roadmap-status">Coming Soon</span>
+    <div class="feature-row">
+      <div class="feature-item">
+        <div class="icon-plate"><svg class="icon" style="width:19px;height:19px"><use href="#i-box"/></svg></div>
+        <h4>No App Store, No Install</h4>
+        <p>Just open the link, enter your key, and study. iPhone and iPad users can add it to their home screen in one tap.</p>
+      </div>
+      <div class="feature-item">
+        <div class="icon-plate"><svg class="icon" style="width:19px;height:19px"><use href="#i-plane"/></svg></div>
+        <h4>Truly Offline</h4>
+        <p>No servers, no syncing, no internet required after your first visit. Study on a plane, a subway, anywhere.</p>
+      </div>
+      <div class="feature-item">
+        <div class="icon-plate"><svg class="icon" style="width:19px;height:19px"><use href="#i-lock"/></svg></div>
+        <h4>No Account, No Tracking</h4>
+        <p>Nothing to sign up for. Nothing phoning home. Your study data stays on your device.</p>
+      </div>
+      <div class="feature-item">
+        <div class="icon-plate"><svg class="icon" style="width:19px;height:19px"><use href="#i-tag"/></svg></div>
+        <h4>Buy Once, Keep Forever</h4>
+        <p>No subscriptions. Pay once, and the app is yours — no expiry date, ever.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- WHY -->
-<section id="why">
-  <div class="sect-label">Why BriefcaseGo</div>
-  <h2 class="sect-title">Simple by design.</h2>
-  <p class="sect-sub">Every BriefcaseGo app follows the same philosophy: unlock once, own it forever, use it anywhere.</p>
-  <div class="why-grid">
-    <div class="why-card card reveal">
-      <span class="why-icon">📦</span>
-      <div class="why-title">No App Store, No Install</div>
-      <div class="why-desc">Just open the link, enter your key, and study. iPhone and iPad users can add it to their home screen in one tap.</div>
-    </div>
-    <div class="why-card card reveal">
-      <span class="why-icon">✈️</span>
-      <div class="why-title">Truly Offline</div>
-      <div class="why-desc">No servers, no syncing, no internet required after your first visit. Study on a plane, a subway, anywhere.</div>
-    </div>
-    <div class="why-card card reveal">
-      <span class="why-icon">🔒</span>
-      <div class="why-title">No Account, No Tracking</div>
-      <div class="why-desc">Nothing to sign up for. Nothing phoning home. Your study data stays on your device.</div>
-    </div>
-    <div class="why-card card reveal">
-      <span class="why-icon">💳</span>
-      <div class="why-title">Buy Once, Keep Forever</div>
-      <div class="why-desc">No subscriptions. Pay once, and the app is yours — no expiry date, ever.</div>
-    </div>
+<section class="cta-band" style="border-bottom:1px solid var(--hairline)">
+  <div class="wrap">
+    <h2>Start with <em>AI Security Management Prep.</em></h2>
+    <p>300 questions, a full study guide, and a simulated exam — ready to use today.</p>
+    <a class="btn btn-primary" href="/apps/aaism/">Explore the App — $9.99</a>
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- BOTTOM CTA -->
-<div class="cta-section">
-  <h2 class="cta-headline reveal">Start with<br>AI Security Management Prep.</h2>
-  <p class="cta-sub reveal">300 questions, a full study guide, and a simulated exam — ready to use today.</p>
-  <a class="btn-primary reveal" href="apps/aaism/" style="font-size:18px;padding:18px 48px;">
-    Explore the App — $9.99
-  </a>
-</div>
-
-<!-- FOOTER -->
 <footer>
   <div class="footer-links">
     <a href="/">Home</a>
-    <a href="apps/aaism/">AI Security Management Prep</a>
-    <a href="blog/">Blog</a>
-    <a href="about/">About</a>
+    <a href="/apps/aaism/">AI Security Management Prep</a>
+    <a href="/blog/">Insights</a>
+    <a href="/about/">About</a>
   </div>
   <p>A <strong>BriefcaseGo</strong> product — Knowledge on the go, no briefcase required.</p>
   <p class="footer-disclaimer">BriefcaseGo is an independent publisher of study and learning tools and is not affiliated with, sponsored by, or endorsed by ISACA or any certification body referenced on this site. AAISM™ is a trademark of ISACA.</p>
 </footer>
 
 <script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      observer.unobserve(e.target);
-    }
+  document.querySelectorAll('.nav-toggle').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var open = btn.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      document.querySelector('.nav-links').classList.toggle('open', open);
+    });
   });
-}, { threshold: 0.15 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Scroll-reveal
+  (function(){
+    var revealSelector = '.section-head,.flagship-panel,.panel-card,.feature-item,.domain-card,.inside-card,.demo-shell,.step-item,.callout-box,.prose,.post-row';
+    var revealEls = document.querySelectorAll(revealSelector);
+    if (!('IntersectionObserver' in window)){
+      revealEls.forEach(function(el){ el.classList.add('reveal-in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add('reveal-in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    revealEls.forEach(function(el){ io.observe(el); });
+  })();
 </script>
+
 </body>
 </html>
