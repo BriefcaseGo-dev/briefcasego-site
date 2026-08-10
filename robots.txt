@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://briefcasego.com/sitemap.xml
