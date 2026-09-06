@@ -6,7 +6,7 @@
 <title>AI Security Management Prep — BriefcaseGo</title>
 <link rel="icon" type="image/png" sizes="64x64" href="../../assets/img/favicon-32.png">
 <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png">
-<meta name="description" content="AI Security Management Prep — 300 practice questions, a full study guide, a 120-term glossary, and a 90-question simulated exam for the AAISM™ certification. Works offline, no account required.">
+<meta name="description" content="AI Security Management Prep — 300 practice questions, a full study guide, a 150-term glossary with real-world example scenarios, and a 90-question simulated exam for the AAISM™ certification. Works offline, no account required.">
 <link rel="canonical" href="https://briefcasego.com/apps/aaism/">
 <meta property="og:title" content="AI Security Management Prep — BriefcaseGo">
 <meta property="og:description" content="Your study companion for the AAISM™ exam. 300 questions, a full study guide, and a simulated exam — works offline.">
@@ -158,7 +158,7 @@
       <div class="inside-card">
         <div class="icon-plate"><svg class="icon" viewBox="0 0 24 24"><use href="#i-book-open"/></svg></div>
         <h4>Glossary</h4>
-        <p>Searchable reference for key AI security terms. From adversarial ML to zero trust — every term you'll see on exam day.</p>
+        <p>Searchable reference for 150 key AI security terms — each with an expandable real-world example scenario, not just a bare definition.</p>
       </div>
       <div class="inside-card">
         <div class="icon-plate"><svg class="icon" viewBox="0 0 24 24"><use href="#i-pencil"/></svg></div>
@@ -275,44 +275,60 @@
         <div class="tab-panel" id="panel-glossary">
           <div class="demo-subhead">
             <h3><svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px;color:var(--amber)"><use href="#i-book-open"/></svg>Glossary</h3>
-            <span class="hint">120 key terms, searchable across all domains</span>
+            <span class="hint">150 key terms — each with an expandable real-world example</span>
           </div>
           <div class="glossary-grid">
-            <div class="term-card">
-              <div class="t-head"><h6>Adversarial Examples</h6><span class="d-tag">D3</span></div>
-              <p>Carefully crafted inputs designed to cause a model to make a mistake. Subtle modifications to data (e.g., images, text) that are imperceptible to humans but cause the AI to misclassify or produce incorrect outputs.</p>
+            <div class="term-card open">
+              <div class="t-head"><h6>AI Management System (AIMS)</h6><span class="d-tag">D1</span></div>
+              <p>A systematic framework of policies, objectives, and processes an organization establishes to direct and control its AI-related activities — the ISO/IEC 42001 concept underlying certification.</p>
+              <button class="rwe-toggle" type="button"><span>Real-World Example</span><svg class="chev" viewBox="0 0 24 24"><use href="#i-chevron"/></svg></button>
+              <div class="rwe-panel"><div class="rwe-panel-inner"><p>A company scales from one pilot AI project to a dozen production systems without ever formalizing an AI management system — each team defines its own ad hoc rules for data handling, model review, and incident response. When a regulator asks for evidence of consistent AI governance, there's no single framework to point to, only a patchwork of team-specific practices. The company's ISO 42001 certification effort starts from scratch, building the AIMS retroactively instead of having grown it alongside the AI program.</p></div></div>
             </div>
             <div class="term-card">
-              <div class="t-head"><h6>AI Charter</h6><span class="d-tag">D1</span></div>
-              <p>A formal document defining the scope, objectives, stakeholders, governance structure, risk management plan, success metrics, and approval signatures for an AI program.</p>
+              <div class="t-head"><h6>General-Purpose AI (GPAI)</h6><span class="d-tag">D2</span></div>
+              <p>Under the EU AI Act, an AI model or system displaying significant generality and capable of a wide range of tasks regardless of market placement — includes foundation models, subject to distinct obligations from narrower, single-purpose systems.</p>
+              <button class="rwe-toggle" type="button"><span>Real-World Example</span><svg class="chev" viewBox="0 0 24 24"><use href="#i-chevron"/></svg></button>
+              <div class="rwe-panel"><div class="rwe-panel-inner"><p>A company building a narrow fraud-detection tool assumes GPAI obligations don't apply, and they're right. But when they later license a foundation model for an open-ended internal chatbot, GPAI obligations — model evaluation, incident tracking, cybersecurity — apply in a way their narrow tool never triggered, because generality itself determines this category, not risk level.</p></div></div>
             </div>
             <div class="term-card">
               <div class="t-head"><h6>AI Governance</h6><span class="d-tag">D1</span></div>
-              <p>The senior oversight, processes, standards, and safeguards that ensure safe and ethical use of AI — addressing inherent flaws from human-created AI, including bias and discrimination.</p>
+              <p>The senior oversight, processes, standards, and safeguards ensuring safe and ethical use of AI — addressing inherent flaws from human-created AI including bias and discrimination. The governing body bears ultimate, undelegable accountability for all AI activities.</p>
+              <button class="rwe-toggle" type="button"><span>Real-World Example</span><svg class="chev" viewBox="0 0 24 24"><use href="#i-chevron"/></svg></button>
+              <div class="rwe-panel"><div class="rwe-panel-inner"><p>A logistics company's routing AI starts systematically deprioritizing deliveries to a lower-income zip code because of biased historical data. Engineers notice the pattern, but no one has authority to halt the system — governance was never formalized beyond "the data science team handles it." When a complaint escalates to a lawsuit, the board — who holds ultimate, undelegable accountability regardless of who built the model — has no oversight structure to show regulators.</p></div></div>
             </div>
             <div class="term-card">
               <div class="t-head"><h6>Data Poisoning</h6><span class="d-tag">D2</span></div>
-              <p>An attack where malicious data is injected into training datasets to introduce backdoors, manipulate model behavior, or sabotage model performance. A primary supply chain risk for AI systems.</p>
+              <p>Manipulation of training or validation data to introduce vulnerabilities, backdoors, or biases into the resulting model — a primary supply chain risk for AI systems.</p>
+              <button class="rwe-toggle" type="button"><span>Real-World Example</span><svg class="chev" viewBox="0 0 24 24"><use href="#i-chevron"/></svg></button>
+              <div class="rwe-panel"><div class="rwe-panel-inner"><p>A competitor secretly contributes manipulated samples to a public dataset that a company later uses to fine-tune its customer-service model. Months later, the model responds strangely to a specific, obscure phrase — a backdoor the poisoned samples planted — letting the competitor trigger embarrassing outputs on demand. Because nobody validated the training data's provenance before fine-tuning, the sabotage went undetected until it was already deployed.</p></div></div>
             </div>
             <div class="term-card">
-              <div class="t-head"><h6>Human-in-the-Loop (HITL)</h6><span class="d-tag">D3</span></div>
-              <p>A safety control requiring human oversight and final decision authority over AI outputs. Essential for high-stakes decisions in healthcare, law enforcement, and financial lending.</p>
+              <div class="t-head"><h6>Human-in-the-Loop (HITL)</h6><span class="d-tag">D1</span></div>
+              <p>A qualified human overseeing AI outputs and making final decisions, particularly for high-stakes applications. Required for high-risk AI under the EU AI Act. HITL must involve genuine independent judgment, not rubber-stamping.</p>
+              <button class="rwe-toggle" type="button"><span>Real-World Example</span><svg class="chev" viewBox="0 0 24 24"><use href="#i-chevron"/></svg></button>
+              <div class="rwe-panel"><div class="rwe-panel-inner"><p>A bank's AI-driven loan-denial system has a "human review" step, but reviewing officers are told to approve the AI's call in over 95% of cases and are evaluated on throughput, not accuracy. When a discrimination complaint is investigated, regulators determine the review was rubber-stamping, not genuine independent judgment — meaning the EU AI Act's HITL requirement was violated in substance even with a human technically "in the loop."</p></div></div>
             </div>
             <div class="term-card">
-              <div class="t-head"><h6>Model Drift</h6><span class="d-tag">D3</span></div>
-              <p>The degradation of an ML model's performance over time as real-world data distributions change or the relationship between inputs and outputs shifts. Requires continuous monitoring and periodic retraining.</p>
+              <div class="t-head"><h6>Explainability</h6><span class="d-tag">D3</span></div>
+              <p>A representation of the mechanisms underlying an AI system's operation — the "how" — distinct from Interpretability, which concerns the meaning of an output (the "why").</p>
+              <button class="rwe-toggle" type="button"><span>Real-World Example</span><svg class="chev" viewBox="0 0 24 24"><use href="#i-chevron"/></svg></button>
+              <div class="rwe-panel"><div class="rwe-panel-inner"><p>A bank can describe exactly which layers and weights activated to produce a loan denial — genuine explainability — but the loan officer still can't tell the applicant anything meaningful about why their situation led to that outcome. Explainability without an interpretability layer leaves perfect technical detail and no usable answer.</p></div></div>
             </div>
             <div class="term-card">
               <div class="t-head"><h6>Prompt Injection</h6><span class="d-tag">D2</span></div>
-              <p>An attack that overrides or manipulates an LLM's system instructions by embedding malicious content in user inputs. Listed as the #1 risk in the OWASP Top 10 for LLMs.</p>
+              <p>An attack where crafted inputs override an LLM's system instructions, causing it to ignore safety guidelines, reveal confidential information, or take harmful actions.</p>
+              <button class="rwe-toggle" type="button"><span>Real-World Example</span><svg class="chev" viewBox="0 0 24 24"><use href="#i-chevron"/></svg></button>
+              <div class="rwe-panel"><div class="rwe-panel-inner"><p>A company's customer-facing chatbot processes documents uploaded by users, and an attacker embeds hidden instructions inside a PDF telling the model to ignore its safety guidelines and reveal internal system prompts. Because the malicious instructions arrived inside processed content rather than the visible chat message, this is indirect prompt injection — easy to miss if a team only screens direct user input.</p></div></div>
             </div>
             <div class="term-card">
-              <div class="t-head"><h6>Zero Trust (AI)</h6><span class="d-tag">D3</span></div>
-              <p>A principle that AI decisions are NOT automatically assumed to be correct. Three areas: Ability (can the AI perform its task?), Integrity (will data be processed correctly?), Benevolence (does it adhere to do-no-harm principles?).</p>
+              <div class="t-head"><h6>Model Drift</h6><span class="d-tag">D3</span></div>
+              <p>Gradual degradation of ML model performance due to changes in data distributions or relationships between inputs and outputs over time. Two types: data drift and concept drift.</p>
+              <button class="rwe-toggle" type="button"><span>Real-World Example</span><svg class="chev" viewBox="0 0 24 24"><use href="#i-chevron"/></svg></button>
+              <div class="rwe-panel"><div class="rwe-panel-inner"><p>A demand-forecasting model performs reliably for two years, then starts over-predicting after a competitor shifts customer behavior. Investigation determines this is concept drift, not data drift — the inputs look statistically similar, but the input-output relationship changed. The distinction matters because the fix differs from what a data-drift diagnosis would prescribe.</p></div></div>
             </div>
           </div>
           <div class="locked-teaser">
-            <div class="msg"><svg class="icon" viewBox="0 0 24 24"><use href="#i-lock"/></svg>112 more terms unlocked with purchase</div>
+            <div class="msg"><svg class="icon" viewBox="0 0 24 24"><use href="#i-lock"/></svg>142 more terms unlocked with purchase</div>
             <a class="btn-sm" href="https://briefcasego.gumroad.com/l/qzhhoz?wanted=true">Get Full Access — $9.99</a>
           </div>
         </div>
@@ -404,6 +420,13 @@
   document.querySelectorAll('.acc-summary').forEach(function(btn){
     btn.addEventListener('click', function(){
       btn.closest('.accordion-item').classList.toggle('open');
+    });
+  });
+
+  // Glossary "Real-World Example" panel expand/collapse
+  document.querySelectorAll('.rwe-toggle').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      btn.closest('.term-card').classList.toggle('open');
     });
   });
 

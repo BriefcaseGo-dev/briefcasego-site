@@ -153,6 +153,13 @@ h2 em,.sect-title em{font-style:normal;color:var(--rust);}
 .term-card h6{font-family:var(--font-display);font-weight:600;font-size:14.5px;}
 .term-card .d-tag{font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.04em;color:var(--teal);text-transform:uppercase;flex-shrink:0;margin-left:10px;}
 .term-card p{font-size:12.5px;line-height:1.55;color:var(--bone-dim);}
+.term-card .rwe-toggle{display:flex;align-items:center;gap:6px;width:100%;margin-top:12px;padding-top:11px;border:none;border-top:1px dashed var(--hairline);background:transparent;cursor:pointer;font-family:var(--font-mono);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--teal);text-align:left;}
+.term-card .rwe-toggle .chev{width:11px;height:11px;margin-left:auto;flex-shrink:0;transition:transform .2s ease;}
+.term-card.open .rwe-toggle .chev{transform:rotate(180deg);}
+.term-card .rwe-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease;}
+.term-card.open .rwe-panel{grid-template-rows:1fr;}
+.term-card .rwe-panel-inner{overflow:hidden;}
+.term-card .rwe-panel-inner p{border-left:3px solid var(--teal);padding:2px 0 2px 14px;margin-top:11px;font-size:12.5px;line-height:1.6;color:var(--bone-dim);}
 
 .step-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-bottom:36px;}
 
