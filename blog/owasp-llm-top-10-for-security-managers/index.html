@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OWASP LLM Top 10, Explained for Security Managers — BriefcaseGo</title>
+<link rel="icon" type="image/png" sizes="64x64" href="../../assets/img/favicon-32.png">
+<link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png">
+<meta name="description" content="The OWASP Top 10 for LLM Applications isn't a developer checklist — here's how AAISM Domain 3 expects security managers to actually use it.">
+<link rel="canonical" href="https://briefcasego.com/blog/owasp-llm-top-10-for-security-managers/">
+<meta property="og:title" content="OWASP LLM Top 10, Explained for Security Managers">
+<meta property="og:description" content="The OWASP Top 10 for LLM Applications isn't a developer checklist — here's how AAISM Domain 3 expects security managers to actually use it.">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2026-09-06">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=DM+Sans:wght@900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "OWASP LLM Top 10, Explained for Security Managers",
+  "description": "The OWASP Top 10 for LLM Applications isn't a developer checklist — here's how AAISM Domain 3 expects security managers to actually use it.",
+  "datePublished": "2026-09-06",
+  "dateModified": "2026-09-06",
+  "author": { "@type": "Organization", "name": "BriefcaseGo" },
+  "publisher": { "@type": "Organization", "name": "BriefcaseGo" }
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="../../assets/img/briefcasego-lockup-horizontal.svg" alt="BriefcaseGo" class="nav-logo-lockup">
+  </a>
+  <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/apps/aaism/">AI Security Management Prep</a>
+    <a href="/blog/" class="active">Insights</a>
+    <a href="/about/">About</a>
+  </div>
+</nav>
+
+<!-- ARTICLE HERO -->
+<div class="article-hero">
+  <div class="article-eyebrow">Domain 3 — AI Technologies &amp; Controls</div>
+  <h1 class="article-h1">OWASP LLM Top 10, Explained for Security Managers</h1>
+  <div class="article-meta">September 2026 · 5 min read</div>
+</div>
+
+<div class="article-body">
+
+<p>Most security managers have run into the <a href="https://genai.owasp.org/llm-top-10/">OWASP Top 10 for LLM Applications</a> exactly once — usually in a slide an engineering team put together to justify a control it already wanted to build. That's a narrower read than the list deserves. It isn't a developer checklist. It's a framework for deciding which technical controls belong in an AI security program in the first place, and that's the angle AAISM Domain 3 actually tests it from.</p>
+
+<h2>What's Actually On the List</h2>
+<p>The 2025 edition reorganized the list more than a routine refresh — two categories were added outright, several others were merged or renamed, and the ranking shifted to reflect where real incidents were actually showing up. <strong>System Prompt Leakage</strong> was added after a run of cases where attackers extracted hidden instructions straight out of production chatbots, and <strong>Vector and Embedding Weaknesses</strong> was added as retrieval-augmented generation (RAG) architectures went from novel to standard. Sensitive Information Disclosure jumped from sixth place to second, and Supply Chain moved from fifth to third — both reordered to match where the 2025 working group saw risk concentrating in practice.</p>
+<p>The ten categories, in order: <strong>Prompt Injection</strong> (crafted input, delivered directly or hidden in content the model processes, overrides intended behavior); <strong>Sensitive Information Disclosure</strong> (the model exposes personal data, credentials, or proprietary material in its output); <strong>Supply Chain</strong> (a third-party model, dataset, plugin, or package carries inherited risk); <strong>Data and Model Poisoning</strong> (manipulated training or fine-tuning data plants bias or a backdoor); <strong>Improper Output Handling</strong> (model output reaches a downstream system without validation); <strong>Excessive Agency</strong> (an AI system is granted more autonomy or permission than its task requires); <strong>System Prompt Leakage</strong> (hidden instructions or embedded secrets get extracted); <strong>Vector and Embedding Weaknesses</strong> (a RAG pipeline's retrieval layer leaks data or admits injected content); <strong>Misinformation</strong> (confidently wrong output a user over-trusts); and <strong>Unbounded Consumption</strong> (no ceiling on token, API, or compute use, opening the door to cost-driven denial of service).</p>
+
+<div class="callout reveal"><strong>Why this matters for AAISM:</strong> Few resources in the AAISM body of knowledge sit this evenly across two domains. The OWASP Top 10 for LLM Applications is named study material for Domain 3, tested there as a control-selection and architecture-judgment framework — but the same ten categories double as a Domain 2 threat-modeling resource for identifying AI-specific technical risk. A scenario question built around this list could plausibly come from either domain's angle, which is itself a useful reminder that AI security risk doesn't actually respect the exam's domain boundaries — the domains are a study structure, not a wall between concerns.</div>
+
+<h2>Domain 3: A Control-Mapping Tool</h2>
+<p>The exam distinction that trips people up here is the same one that matters on the job: a security manager's role with this list isn't to review the code that mitigates each risk, it's to confirm every category has an owned, assigned control somewhere in the architecture — and to know which control actually answers which risk. Improper Output Handling gets closed by downstream output validation; Excessive Agency gets closed by scoping an agent's permissions to the minimum its task needs; Vector and Embedding Weaknesses gets closed by access controls on the retrieval layer, not just on the model itself. The job is confirming the mapping exists and is owned, not implementing it.</p>
+
+<h2>Domain 2: A Threat-Modeling and Vendor Due-Diligence Resource</h2>
+<p>The same ten categories answer a different question when the hat changes from architecture reviewer to risk manager: not "is this covered?" but "what could actually go wrong here, and how likely is it?" That's the threat-modeling use case Domain 2 tests — walking through the list against a specific system or vendor relationship to identify which categories represent real exposure versus which don't apply. It also works as a structured vendor due-diligence checklist before signing with a third-party LLM provider: ask specifically about their Supply Chain (LLM03) posture and their Prompt Injection (LLM01) and System Prompt Leakage (LLM07) handling, rather than accepting a general security attestation at face value.</p>
+<p><strong>Excessive Agency</strong> is worth calling out as its own cross-domain theme: it's the same failure mode behind real incidents where an AI agent was handed more autonomy than its task warranted — see <a href="/blog/openai-hugging-face-ai-agent-incident/">The AI That Hacked Another Company</a> for a live example already covered on this site.</p>
+
+<div class="inline-cta reveal">
+  <p>Want to go deeper on how this domain is tested on the AAISM exam? The AI Security Management Prep App covers this and 300 other practice scenarios, offline.</p>
+  <a class="btn-primary" href="/apps/aaism/">Explore the App — $9.99</a>
+</div>
+
+<h2>Related Reading</h2>
+<p>For the full exam breakdown, see the <a href="/blog/aaism-certification-study-guide/">AAISM Certification Study Guide</a>. For a real-world Excessive Agency incident, see <a href="/blog/openai-hugging-face-ai-agent-incident/">The AI That Hacked Another Company</a>. For the Supply Chain angle applied to a vendor breach, see <a href="/blog/irregular-ai-testing-vendor-breaches/">One Vendor, Three AI Breaches</a>.</p>
+
+<h2>Sources</h2>
+<p class="sources-list reveal">
+  OWASP — <a href="https://genai.owasp.org/llm-top-10/">Top 10 for LLM Applications (2025)</a><br>
+  OWASP Foundation — <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/">OWASP Top 10 for Large Language Model Applications project page</a><br>
+  Dest Cert — <a href="https://destcert.com/resources/aaism-domain-3-ai-technologies-and-controls">AAISM Domain 3 Explained: AI Technologies and Controls</a>
+</p>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/apps/aaism/">AI Security Management Prep</a>
+    <a href="/blog/">Insights</a>
+    <a href="/about/">About</a>
+  </div>
+  <p>A <strong>BriefcaseGo</strong> product — Knowledge on the go, no briefcase required.</p>
+  <p class="footer-disclaimer">BriefcaseGo is an independent publisher of study and learning tools and is not affiliated with, sponsored by, or endorsed by ISACA or any certification body referenced on this site. AAISM™ is a trademark of ISACA.</p>
+</footer>
+
+<script>
+  document.querySelectorAll('.nav-toggle').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var open = btn.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      document.querySelector('.nav-links').classList.toggle('open', open);
+    });
+  });
+
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting){
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(function(el){ observer.observe(el); });
+
+  document.querySelectorAll('.article-body a[href^="http"]').forEach(function(a){
+    if (a.hostname !== window.location.hostname) {
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+    }
+  });
+</script>
+</body>
+</html>
