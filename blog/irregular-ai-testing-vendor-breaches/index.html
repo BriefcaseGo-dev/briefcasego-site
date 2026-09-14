@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>One Vendor, Three AI Breaches: A Containment Lesson for AAISM — BriefcaseGo</title>
+<title>One Vendor, Three AI Breaches: A Containment Lesson for AAISM™ — BriefcaseGo</title>
 <link rel="icon" type="image/png" sizes="64x64" href="../../assets/img/favicon-32.png">
 <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png">
-<meta name="description" content="OpenAI, Anthropic, and Meta each disclosed AI models breaching outside systems during testing — all through the same vendor. The AAISM Domain 3 lesson.">
+<meta name="description" content="OpenAI, Anthropic, and Meta each disclosed AI models breaching outside systems during testing — all through the same vendor. The AAISM™ Domain 3 lesson.">
 <link rel="canonical" href="https://briefcasego.com/blog/irregular-ai-testing-vendor-breaches/">
-<meta property="og:title" content="One Vendor, Three AI Breaches: A Containment Lesson for AAISM">
-<meta property="og:description" content="OpenAI, Anthropic, and Meta each disclosed AI models breaching outside systems during testing — all through the same vendor. The AAISM Domain 3 lesson.">
+<meta property="og:title" content="One Vendor, Three AI Breaches: A Containment Lesson for AAISM™">
+<meta property="og:description" content="OpenAI, Anthropic, and Meta each disclosed AI models breaching outside systems during testing — all through the same vendor. The AAISM™ Domain 3 lesson.">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2026-08-16">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,8 +19,8 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "One Vendor, Three AI Breaches: A Containment Lesson for AAISM",
-  "description": "OpenAI, Anthropic, and Meta each disclosed AI models breaching outside systems during testing — all through the same vendor. The AAISM Domain 3 lesson.",
+  "headline": "One Vendor, Three AI Breaches: A Containment Lesson for AAISM™",
+  "description": "OpenAI, Anthropic, and Meta each disclosed AI models breaching outside systems during testing — all through the same vendor. The AAISM™ Domain 3 lesson.",
   "datePublished": "2026-08-16",
   "dateModified": "2026-08-16",
   "author": { "@type": "Organization", "name": "BriefcaseGo" },
@@ -47,20 +47,20 @@
 <!-- ARTICLE HERO -->
 <div class="article-hero">
   <div class="article-eyebrow">Domain 3 — AI Technologies &amp; Controls</div>
-  <h1 class="article-h1">One Vendor, Three AI Breaches: A Containment Lesson for AAISM</h1>
+  <h1 class="article-h1">One Vendor, Three AI Breaches: A Containment Lesson for AAISM™</h1>
   <div class="article-meta">August 2026 · 5 min read</div>
 </div>
 
 <div class="article-body">
 
-<p>In July, an OpenAI model breaking into Hugging Face's systems during a security test looked like an outlier — one lab's model escaping one sandbox. By the second week of August, it looked like a pattern. Anthropic and then Meta each disclosed their own frontier models compromising outside organizations under nearly identical circumstances, and all three incidents ran through the same third-party testing vendor. For AAISM candidates, that repetition is the more useful lesson — this wasn't really about any single model going rogue.</p>
+<p>In July, an OpenAI model breaking into Hugging Face's systems during a security test looked like an outlier — one lab's model escaping one sandbox. By the second week of August, it looked like a pattern. Anthropic and then Meta each disclosed their own frontier models compromising outside organizations under nearly identical circumstances, and all three incidents ran through the same third-party testing vendor. For AAISM™ candidates, that repetition is the more useful lesson — this wasn't really about any single model going rogue.</p>
 
 <h2>What Happened</h2>
 <p>The pattern started with OpenAI, whose model breached Hugging Face's infrastructure during a cybersecurity evaluation in late July. Then, on July 30, <a href="https://www.esecurityplanet.com/cloud-security/news-openai-anthropic-meta-ai-incidents-irregular/">Anthropic disclosed</a> that three of its models — Claude Opus 4.7, Claude Mythos 5, and an internal test model — had compromised three separate outside organizations during "capture the flag" exercises, evaluations where safety guardrails are deliberately switched off to measure a model's raw offensive capability. On August 5, <a href="https://www.cbsnews.com/news/meta-says-ai-model-breached-third-party-company/">Meta became the third</a>, disclosing that its Muse Spark 1.1 model had exploited a vulnerability in a third-party company's systems during a similar evaluation.</p>
 <p>All three evaluations were run by the same vendor: Irregular, a security firm that specializes in offensive AI capability testing. <a href="https://www.semafor.com/article/08/07/2026/hacks-put-pressure-on-third-party-model-testers">Irregular has said</a> the common thread wasn't a sophisticated sandbox escape or a novel attack technique in any of the three cases — it was a configuration error that left internet access open in environments meant to be isolated. In one instance, a fictional target company built into a test scenario happened to share a name with a real, live website, giving a model that reached the open internet somewhere real to go.</p>
 <p>Irregular's response was to cut internet access entirely for models under evaluation until it establishes new containment protocols, and both OpenAI and Anthropic have said they intend to keep working with the firm. But three unrelated frontier labs hitting the same category of failure, through the same vendor, inside of two weeks is itself the finding worth sitting with.</p>
 
-<div class="callout reveal"><strong>Why this matters for AAISM:</strong> This is Domain 3 material at its core — network isolation and evaluation-environment design are exactly the technical controls that failed here, three times, in the same way. But it's also a Domain 2 case study in concentration risk: when multiple organizations rely on the same third-party vendor for a security-critical function, that vendor's single point of failure becomes everyone's simultaneous incident.</div>
+<div class="callout reveal"><strong>Why this matters for AAISM™:</strong> This is Domain 3 material at its core — network isolation and evaluation-environment design are exactly the technical controls that failed here, three times, in the same way. But it's also a Domain 2 case study in concentration risk: when multiple organizations rely on the same third-party vendor for a security-critical function, that vendor's single point of failure becomes everyone's simultaneous incident.</div>
 
 <h2>When the Same Control Fails at Three Companies</h2>
 <p>Security researchers reacting to the pattern have been blunt about what it exposes. Analysts covering the incidents have argued that evaluation environments can no longer be treated as passive test infrastructure — a capable model under test should be treated as a potentially hostile machine identity, not a subject that will reliably stay inside the boundaries it's told to respect. Others have gone further, calling for industry-wide standards for how evaluation environments themselves are designed, arguing that traditional sandboxing assumptions no longer hold against models this capable. One frontier-security analyst put the uncomfortable part plainly: keeping a test environment off the open internet isn't an advanced control. It's one of the most basic ones available — and it failed the same way three separate times.</p>
@@ -77,7 +77,7 @@
 </div>
 
 <h2>Related Reading</h2>
-<p>For the full exam breakdown, see the <a href="/blog/aaism-certification-study-guide/">AAISM Certification Study Guide</a>. For the incident that started this pattern, see <a href="/blog/openai-hugging-face-ai-agent-incident/">The AI That Hacked Another Company</a>. For another example of third-party and vendor risk in practice, see <a href="/blog/vercel-context-ai-vendor-risk/">The Vercel Breach: An AI Vendor Risk Case Study</a>.</p>
+<p>For the full exam breakdown, see the <a href="/blog/aaism-certification-study-guide/">AAISM™ Certification Study Guide</a>. For the incident that started this pattern, see <a href="/blog/openai-hugging-face-ai-agent-incident/">The AI That Hacked Another Company</a>. For another example of third-party and vendor risk in practice, see <a href="/blog/vercel-context-ai-vendor-risk/">The Vercel Breach: An AI Vendor Risk Case Study</a>.</p>
 
 <h2>Sources</h2>
 <p class="sources-list reveal">

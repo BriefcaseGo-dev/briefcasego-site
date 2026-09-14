@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Vercel Breach: An AI Vendor Risk Case Study for AAISM — BriefcaseGo</title>
+<title>The Vercel Breach: An AI Vendor Risk Case Study for AAISM™ — BriefcaseGo</title>
 <link rel="icon" type="image/png" sizes="64x64" href="../../assets/img/favicon-32.png">
 <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png">
-<meta name="description" content="One employee's OAuth grant to a third-party AI tool led to a breach at Vercel months later. Here's the vendor-risk lesson for AAISM Domain 2.">
+<meta name="description" content="One employee's OAuth grant to a third-party AI tool led to a breach at Vercel months later. Here's the vendor-risk lesson for AAISM™ Domain 2.">
 <link rel="canonical" href="https://briefcasego.com/blog/vercel-context-ai-vendor-risk/">
-<meta property="og:title" content="The Vercel Breach: An AI Vendor Risk Case Study for AAISM">
-<meta property="og:description" content="One employee's OAuth grant to a third-party AI tool led to a breach at Vercel months later. Here's the vendor-risk lesson for AAISM Domain 2.">
+<meta property="og:title" content="The Vercel Breach: An AI Vendor Risk Case Study for AAISM™">
+<meta property="og:description" content="One employee's OAuth grant to a third-party AI tool led to a breach at Vercel months later. Here's the vendor-risk lesson for AAISM™ Domain 2.">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2026-08-09">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,8 +19,8 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "The Vercel Breach: An AI Vendor Risk Case Study for AAISM",
-  "description": "One employee's OAuth grant to a third-party AI tool led to a breach at Vercel months later. Here's the vendor-risk lesson for AAISM Domain 2.",
+  "headline": "The Vercel Breach: An AI Vendor Risk Case Study for AAISM™",
+  "description": "One employee's OAuth grant to a third-party AI tool led to a breach at Vercel months later. Here's the vendor-risk lesson for AAISM™ Domain 2.",
   "datePublished": "2026-08-09",
   "dateModified": "2026-08-09",
   "author": { "@type": "Organization", "name": "BriefcaseGo" },
@@ -47,20 +47,20 @@
 <!-- ARTICLE HERO -->
 <div class="article-hero">
   <div class="article-eyebrow">Domain 2 — AI Risk Management</div>
-  <h1 class="article-h1">The Vercel Breach: An AI Vendor Risk Case Study for AAISM</h1>
+  <h1 class="article-h1">The Vercel Breach: An AI Vendor Risk Case Study for AAISM™</h1>
   <div class="article-meta">August 2026 · 5 min read</div>
 </div>
 
 <div class="article-body">
 
-<p>Vercel's breach earlier this year didn't start with an attack on Vercel at all. It started months earlier, with one employee granting a small third-party AI tool broad access to a Google Workspace account — a routine, low-friction decision that turned into the entry point for a much larger intrusion. For anyone studying AAISM Domain 2, it's a clean illustration of how vendor risk actually spreads: not through the vendor you assessed, but through the access you forgot you granted.</p>
+<p>Vercel's breach earlier this year didn't start with an attack on Vercel at all. It started months earlier, with one employee granting a small third-party AI tool broad access to a Google Workspace account — a routine, low-friction decision that turned into the entry point for a much larger intrusion. For anyone studying AAISM™ Domain 2, it's a clean illustration of how vendor risk actually spreads: not through the vendor you assessed, but through the access you forgot you granted.</p>
 
 <h2>What Happened</h2>
 <p>Vercel disclosed a security incident in which attackers gained unauthorized access to a limited portion of its internal systems. The path in traced back to <a href="https://vercel.com/kb/bulletin/vercel-april-2026-security-incident">Vercel's own account</a> of the incident: an employee had connected Context.ai, a third-party AI productivity tool, to their Vercel Enterprise Google account, granting it broad read access including Google Drive. That OAuth connection sat in place, unreviewed, for months.</p>
 <p>The chain of compromise didn't begin at Vercel or even at Context.ai's product — it began with <a href="https://www.trendmicro.com/en_us/research/26/d/vercel-breach-oauth-supply-chain.html">an infection on a Context.ai employee's own machine</a>, reportedly via commodity credential-stealing malware. That foothold on the vendor's side gave attackers a way into the stored customer OAuth tokens Context.ai was holding — among them, the standing grant one Vercel employee had made months before. From there, the intrusion moved through the employee's Workspace account and on into Vercel's own environment.</p>
 <p>The exposure that resulted was significant: customer environment variables, including API keys, database credentials, and deployment secrets, were compromised for a subset of Vercel's customers, according to <a href="https://thehackernews.com/2026/04/vercel-breach-tied-to-context-ai-hack.html">reporting on the incident</a>. Vercel said core products like Next.js and Turbopack were not affected, but the stolen data was later advertised for sale on a criminal marketplace.</p>
 
-<div class="callout reveal"><strong>Why this matters for AAISM:</strong> This is Domain 2's third-party and vendor risk material playing out end to end — the compromise didn't come from the vendor an org directly assessed, but from that vendor's own vendor exposure. It also crosses into Domain 3: the technical control that would have limited the blast radius here is OAuth scope minimization, not vendor selection.</div>
+<div class="callout reveal"><strong>Why this matters for AAISM™:</strong> This is Domain 2's third-party and vendor risk material playing out end to end — the compromise didn't come from the vendor an org directly assessed, but from that vendor's own vendor exposure. It also crosses into Domain 3: the technical control that would have limited the blast radius here is OAuth scope minimization, not vendor selection.</div>
 
 <h2>The Risk Angle: Fourth-Party Exposure and Standing Access</h2>
 <p>Most vendor risk programs are built to evaluate the vendor directly in front of them — the AI tool a team wants to adopt. This incident shows why that scope is too narrow for AI tools specifically. The actual point of failure was two hops removed: a malware infection on an individual employee at the AI vendor, unrelated to anything the AI tool's own security posture might have looked like on a questionnaire. <a href="https://pushsecurity.com/blog/unpacking-the-vercel-breach">Analysis of the breach</a> has framed this as a broader pattern with AI tools specifically — because they're adopted quickly by individual employees rather than provisioned centrally, the resulting OAuth grants often go untracked by the security team that would otherwise monitor and periodically re-review them.</p>
@@ -77,7 +77,7 @@
 </div>
 
 <h2>Related Reading</h2>
-<p>For the full exam breakdown, see the <a href="/blog/aaism-certification-study-guide/">AAISM Certification Study Guide</a>. For a related containment failure at a different layer of the stack, see <a href="/blog/openai-hugging-face-ai-agent-incident/">The AI That Hacked Another Company</a>. For the governance side of ungoverned AI tool adoption, see <a href="/blog/shadow-ai-governance-gap/">Shadow AI Governance Gap</a>.</p>
+<p>For the full exam breakdown, see the <a href="/blog/aaism-certification-study-guide/">AAISM™ Certification Study Guide</a>. For a related containment failure at a different layer of the stack, see <a href="/blog/openai-hugging-face-ai-agent-incident/">The AI That Hacked Another Company</a>. For the governance side of ungoverned AI tool adoption, see <a href="/blog/shadow-ai-governance-gap/">Shadow AI Governance Gap</a>.</p>
 
 <h2>Sources</h2>
 <p class="sources-list reveal">
