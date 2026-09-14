@@ -105,6 +105,9 @@ h2 em,.sect-title em{font-style:normal;color:var(--rust);}
 .btn-primary{background:var(--amber);color:#14140F;border:1px solid var(--amber);font-weight:700;}
 .btn-secondary{background:transparent;color:var(--bone);border:1px solid var(--hairline-strong);}
 .btn-sm{font-family:var(--font-mono);font-size:11.5px;letter-spacing:0.05em;text-transform:uppercase;padding:10px 16px;border-radius:5px;display:inline-flex;color:#14140F;background:var(--amber);font-weight:700;border:1px solid var(--amber);}
+/* Pre-launch store status — non-interactive, so deliberately not shaped like a button */
+.coming-soon{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:12.5px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--bone);background:var(--panel-2);border:1px dashed var(--hairline-strong);border-radius:999px;padding:12px 22px;}
+.coming-soon .led-dot{background:var(--amber);box-shadow:0 0 0 4px rgba(217,164,65,0.14);flex-shrink:0;}
 
 /* ── GENERIC CARD ── */
 .card{background:var(--panel);border:1px solid var(--hairline-strong);border-radius:var(--r);padding:24px;transition:border-color .15s;}
