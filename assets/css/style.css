@@ -358,7 +358,31 @@ footer strong{color:var(--bone);}
 .price-note b{color:var(--amber);}
 
 /* ── RESPONSIVE ── */
+/* --- Tester recruitment: homepage banner + /testers/ page --- */
+.tester-banner{position:relative;display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;background:var(--panel-2);border-top:2px solid var(--rust);border-bottom:1px solid var(--hairline-strong);padding:14px 56px;text-align:center;}
+.tester-banner p{font-size:14px;line-height:1.55;color:var(--bone-dim);margin:0;}
+.tester-banner p strong{color:var(--bone);font-weight:600;}
+.tester-banner .btn-sm{flex-shrink:0;}
+.tester-banner[hidden]{display:none;}
+.tester-banner-close{position:absolute;right:16px;top:50%;transform:translateY(-50%);width:30px;height:30px;display:flex;align-items:center;justify-content:center;padding:0;background:transparent;border:1px solid var(--hairline);border-radius:5px;color:var(--bone-dim);font-family:var(--font-body);font-size:17px;line-height:1;cursor:pointer;}
+.tester-banner-close:hover{color:var(--bone);border-color:var(--hairline-strong);}
+
+.req-banner{display:flex;align-items:flex-start;gap:14px;background:var(--panel);border:1px solid var(--hairline-strong);border-left:3px solid var(--rust);border-radius:5px;padding:18px 20px;margin:28px 0;}
+.req-banner .icon{color:var(--rust);flex-shrink:0;margin-top:2px;}
+.req-banner h5{font-family:var(--font-display);font-weight:600;font-size:15.5px;margin-bottom:6px;}
+.req-banner p{font-size:14px;line-height:1.6;color:var(--bone-dim);margin:0;}
+.req-banner p strong{color:var(--bone);font-weight:600;}
+
+.warning-banner.strong{max-width:none;background:var(--panel-2);border-left-width:4px;margin-bottom:0;}
+.warning-banner.strong h5{font-family:var(--font-display);font-weight:600;font-size:15.5px;margin-bottom:6px;color:var(--bone);}
+.warning-banner.strong p{font-size:14px;color:var(--bone-dim);}
+.warning-banner.strong p + p{margin-top:10px;}
+
 @media (max-width:900px){
+  .tester-banner{padding:14px 52px 14px 20px;gap:12px;}
+  .tester-banner p{font-size:13.5px;}
+
+
   h1{font-size:34px;}
   .grid-4,.feature-row,.domain-grid,.inside-grid,.glossary-grid,.step-grid{grid-template-columns:1fr;}
   .feature-item{border-left:none;padding-left:0;border-top:1px solid var(--hairline);padding-top:24px;}

@@ -45,6 +45,13 @@
   </div>
 </nav>
 
+<!-- Tester recruitment banner — dismissible, hidden by default until JS confirms it wasn't dismissed -->
+<div class="tester-banner" id="testerBanner" hidden>
+  <p><strong>Android testers wanted.</strong> The AAISM&trade; study app is in closed testing before launch — testers get the full version free.</p>
+  <a class="btn btn-sm" href="/testers/">How to Join</a>
+  <button class="tester-banner-close" id="testerBannerClose" aria-label="Dismiss tester recruitment banner">&times;</button>
+</div>
+
 <section class="hero">
   <div class="wrap">
     <div class="eyebrow"><span class="dot"></span>Independent Study &amp; Learning Apps</div>
@@ -142,7 +149,7 @@
       <div class="feature-item">
         <div class="icon-plate"><svg class="icon" style="width:19px;height:19px"><use href="#i-box"/></svg></div>
         <h4>Try It Free</h4>
-        <p>Coming soon to Google Play as a free download for Android. Try it first, then unlock everything with one in-app purchase — no license key to keep track of.</p>
+        <p>Coming soon to Google Play as a free download for Android. Try it first, then unlock everything with one in-app purchase — nothing to enter or keep track of.</p>
       </div>
       <div class="feature-item">
         <div class="icon-plate"><svg class="icon" style="width:19px;height:19px"><use href="#i-plane"/></svg></div>
@@ -208,6 +215,25 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
     revealEls.forEach(function(el){ io.observe(el); });
+  })();
+
+  // Tester banner — show unless previously dismissed on this device.
+  // Storage can throw or be unavailable (private mode, blocked site data),
+  // so every access is guarded and the banner simply shows on failure.
+  (function(){
+    var banner = document.getElementById('testerBanner');
+    if (!banner) return;
+    var KEY = 'bg_tester_banner_dismissed';
+    var dismissed = false;
+    try { dismissed = localStorage.getItem(KEY) === '1'; } catch (e) {}
+    if (dismissed) return;
+    banner.hidden = false;
+    var close = document.getElementById('testerBannerClose');
+    if (!close) return;
+    close.addEventListener('click', function(){
+      banner.hidden = true;
+      try { localStorage.setItem(KEY, '1'); } catch (e) {}
+    });
   })();
 </script>
 
