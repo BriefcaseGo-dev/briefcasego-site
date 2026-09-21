@@ -358,6 +358,9 @@ footer strong{color:var(--bone);}
 .price-note b{color:var(--amber);}
 
 /* ── RESPONSIVE ── */
+/* Anchor targets clear the 100px sticky nav */
+section[id],.section-head[id]{scroll-margin-top:116px;}
+
 /* --- Tester recruitment: homepage banner + /testers/ page --- */
 .tester-banner{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;background:var(--panel-2);border-top:2px solid var(--rust);border-bottom:1px solid var(--hairline-strong);padding:14px 24px;text-align:center;}
 .tester-banner p{font-size:14px;line-height:1.55;color:var(--bone-dim);margin:0;}
