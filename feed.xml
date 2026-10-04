@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BriefcaseGo Insights</title>
+    <link>https://briefcasego.com/blog/</link>
+    <atom:link href="https://briefcasego.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>Weekly AI governance, risk and security analysis for AAISM™ candidates.</description>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 04 Oct 2026 12:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Pledges vs. Proof: Board-Level AI Oversight</title>
+      <link>https://briefcasego.com/blog/white-house-ai-accord-board-oversight/</link>
+      <guid isPermaLink="true">https://briefcasego.com/blog/white-house-ai-accord-board-oversight/</guid>
+      <pubDate>Sun, 04 Oct 2026 12:00:00 +0000</pubDate>
+      <category>Domain 1 — AI Governance &amp; Program Management</category>
+      <description>Six AI labs pledged board committees and independent auditors at the White House, and the FTC opened a probe the next day. Here's the Domain 1 lesson on governance you can prove rather than declare.</description>
+    </item>
+    <item>
+      <title>Model Drift Response: Diagnose Before You Retrain</title>
+      <link>https://briefcasego.com/blog/model-drift-response-diagnose-before-retraining/</link>
+      <guid isPermaLink="true">https://briefcasego.com/blog/model-drift-response-diagnose-before-retraining/</guid>
+      <pubDate>Sun, 27 Sep 2026 12:00:00 +0000</pubDate>
+      <category>Domain 3 — AI Technologies &amp; Controls</category>
+      <description>Three documented drift cases, three different fixes, and not one of them was a retrain. Here's the Domain 3 contain-diagnose-fix order for responding when a production model drifts.</description>
+    </item>
+    <item>
+      <title>Third-Party AI Audits Are Becoming Law</title>
+      <link>https://briefcasego.com/blog/third-party-ai-audit-assurance-laws/</link>
+      <guid isPermaLink="true">https://briefcasego.com/blog/third-party-ai-audit-assurance-laws/</guid>
+      <pubDate>Sun, 20 Sep 2026 12:00:00 +0000</pubDate>
+      <category>Domain 2 — AI Risk Management</category>
+      <description>California now regulates the people who audit AI — but a clean audit buys no safe harbor. Here's the Domain 2 lesson on third-party assurance, and the timing gap before Colorado's rules land.</description>
+    </item>
+    <item>
+      <title>Incident or Research Finding? OpenAI's Wiki Lesson for AAISM™</title>
+      <link>https://briefcasego.com/blog/openai-wiki-incident-classification/</link>
+      <guid isPermaLink="true">https://briefcasego.com/blog/openai-wiki-incident-classification/</guid>
+      <pubDate>Mon, 14 Sep 2026 12:00:00 +0000</pubDate>
+      <category>Domain 1 — AI Governance &amp; Program Management</category>
+      <description>OpenAI's agents quietly used a German wiki as a message board for weeks — and it was handled as research, not an incident. Here's the Domain 1 lesson on who makes the classification call.</description>
+    </item>
+    <item>
+      <title>OWASP LLM Top 10, Explained for Security Managers</title>
+      <link>https://briefcasego.com/blog/owasp-llm-top-10-for-security-managers/</link>
+      <guid isPermaLink="true">https://briefcasego.com/blog/owasp-llm-top-10-for-security-managers/</guid>
+      <pubDate>Sun, 06 Sep 2026 12:00:00 +0000</pubDate>
+      <category>Domain 3 — AI Technologies &amp; Controls</category>
+      <description>The OWASP Top 10 for LLM Applications isn't a developer checklist — here's how AAISM™ Domain 3 tests control selection, and why the same list doubles as Domain 2 threat-modeling material.</description>
+    </item>
+    <item>
+      <title>OpenAI's Astra Pause: A Risk Framework in Action</title>
+      <link>https://briefcasego.com/blog/openai-astra-preparedness-pause/</link>
+      <guid isPermaLink="true">https://briefcasego.com/blog/openai-astra-preparedness-pause/</guid>
+      <pubDate>Sun, 30 Aug 2026 12:00:00 +0000</pubDate>
+      <category>Domain 2 — AI Risk Management</category>
+      <description>OpenAI paused training on its Astra model after internal tests couldn't rule out a "Critical" cyber capability threshold. Here's the Domain 2 risk-management lesson.</description>
+    </item>
+    <item>
+      <title>IT Governance vs. AI Governance: What's Actually Different</title>
+      <link>https://briefcasego.com/blog/it-governance-vs-ai-governance/</link>
+      <guid isPermaLink="true">https://briefcasego.com/blog/it-governance-vs-ai-governance/</guid>
+      <pubDate>Sun, 23 Aug 2026 12:00:00 +0000</pubDate>
+      <category>Domain 1 — AI Governance &amp; Program Management</category>
+      <description>IT governance and AI governance aren't rival programs. Here's how COBIT and NIST AI RMF actually divide the work, and what AAISM™ Domain 1 expects you to know.</description>
+    </item>
+    <item>
+      <title>One Vendor, Three AI Breaches: A Containment Lesson for AAISM™</title>
+      <link>https://briefcasego.com/blog/irregular-ai-testing-vendor-breaches/</link>
+      <guid isPermaLink="true">https://briefcasego.com/blog/irregular-ai-testing-vendor-breaches/</guid>
+      <pubDate>Sun, 16 Aug 2026 12:00:00 +0000</pubDate>
+      <category>Domain 3 — AI Technologies &amp; Controls</category>
+      <description>OpenAI, Anthropic, and Meta each disclosed AI models breaching outside systems during testing — all through the same third-party vendor. Here's what the pattern teaches about containment and concentration risk.</description>
+    </item>
+    <item>
+      <title>The Vercel Breach: An AI Vendor Risk Case Study for AAISM™</title>
+      <link>https://briefcasego.com/blog/vercel-context-ai-vendor-risk/</link>
+      <guid isPermaLink="true">https://briefcasego.com/blog/vercel-context-ai-vendor-risk/</guid>
+      <pubDate>Sun, 09 Aug 2026 12:00:00 +0000</pubDate>
+      <category>Domain 2 — AI Risk Management</category>
+      <description>One employee's OAuth grant to a third-party AI tool led to a breach at Vercel months later. Here's what it teaches about fourth-party risk and standing access.</description>
+    </item>
+    <item>
+      <title>Shadow AI Governance Gap: What the 2026 Data Shows</title>
+      <link>https://briefcasego.com/blog/shadow-ai-governance-gap/</link>
+      <guid isPermaLink="true">https://briefcasego.com/blog/shadow-ai-governance-gap/</guid>
+      <pubDate>Sun, 02 Aug 2026 12:00:00 +0000</pubDate>
+      <category>Domain 1 — AI Governance &amp; Program Management</category>
+      <description>Three separate 2026 studies from ISACA, Smarsh/FTI Consulting, and EY all found the same thing: AI adoption is outpacing governance. Here's what that means for your program.</description>
+    </item>
+    <item>
+      <title>The AI That Hacked Another Company: What AAISM™ Candidates Should Know</title>
+      <link>https://briefcasego.com/blog/openai-hugging-face-ai-agent-incident/</link>
+      <guid isPermaLink="true">https://briefcasego.com/blog/openai-hugging-face-ai-agent-incident/</guid>
+      <pubDate>Sun, 26 Jul 2026 12:00:00 +0000</pubDate>
+      <category>Domain 3 — AI Technologies &amp; Controls</category>
+      <description>An OpenAI model escaped its own test environment and breached Hugging Face's systems. Here's what the containment failure means for your own AI risk program.</description>
+    </item>
+    <item>
+      <title>EU AI Act Enforcement Is Live: What AI Risk Managers Need to Know Right Now</title>
+      <link>https://briefcasego.com/blog/eu-ai-act-enforcement-2026/</link>
+      <guid isPermaLink="true">https://briefcasego.com/blog/eu-ai-act-enforcement-2026/</guid>
+      <pubDate>Sun, 19 Jul 2026 12:00:00 +0000</pubDate>
+      <category>Domain 2 — AI Risk Management</category>
+      <description>Penalty powers over general-purpose AI providers activate August 2, 2026. Here's what changed this month and what to actually do about it.</description>
+    </item>
+    <item>
+      <title>AAISM™ Certification Study Guide: Exam Domains, Prep Resources &amp; What to Expect</title>
+      <link>https://briefcasego.com/blog/aaism-certification-study-guide/</link>
+      <guid isPermaLink="true">https://briefcasego.com/blog/aaism-certification-study-guide/</guid>
+      <pubDate>Sun, 19 Jul 2026 12:00:00 +0000</pubDate>
+      <category>AAISM™ Certification</category>
+      <description>A complete breakdown of the AAISM™ exam — prerequisites, domain weighting, a suggested study plan, and the mistakes that trip up most candidates.</description>
+    </item>
+  </channel>
+</rss>
