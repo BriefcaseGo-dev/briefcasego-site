@@ -331,6 +331,16 @@ footer strong{color:var(--bone);}
 .prose p strong{color:var(--blue);font-weight:600;}
 .pull-line{font-family:var(--font-display);font-weight:600;font-size:21px;color:var(--bone);border-left:3px solid var(--amber);padding:4px 0 4px 22px;margin:32px 0;line-height:1.4;}
 
+/* ── PRIVACY / LEGAL PAGE ── */
+.legal h3{font-family:var(--font-display);font-weight:600;font-size:21px;color:var(--bone);margin:44px 0 14px;}
+.legal h3:first-child{margin-top:0;}
+.legal ul{margin:0 0 22px 20px;}
+.legal li{color:var(--bone-dim);font-size:16px;line-height:1.75;margin-bottom:8px;}
+.legal li strong{color:var(--bone);font-weight:600;}
+.legal a{color:var(--rust);text-decoration:underline;text-underline-offset:3px;}
+.legal-meta{font-family:var(--font-mono);font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--bone-dim);}
+footer .footer-copy{margin-top:8px;font-size:11.5px;}
+
 /* ── AAISM PAGE EXTRAS ── */
 .hero .subline{font-family:var(--font-display);font-weight:600;font-size:19px;line-height:1.45;color:var(--bone);margin-bottom:16px;}
 .warning-banner{display:flex;align-items:flex-start;gap:12px;background:var(--panel);border:1px solid var(--hairline-strong);border-left:3px solid var(--amber);border-radius:5px;padding:16px 18px;max-width:640px;margin-bottom:40px;}
@@ -412,5 +422,6 @@ section[id],.section-head[id]{scroll-margin-top:116px;}
 .newsletter-form input[type=email]:focus{outline:2px solid var(--amber);outline-offset:1px;border-color:var(--amber);}
 .newsletter-form .btn{flex:0 0 auto;cursor:pointer;}
 .newsletter p.newsletter-fine{color:var(--bone-dim);font-size:12.5px;line-height:1.6;opacity:.85;margin:14px 0 0;}
+.newsletter p.newsletter-fine a{color:inherit;text-decoration:underline;text-underline-offset:2px;}
 .nl-label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
 @media (max-width:520px){.newsletter{padding:22px 18px;}.newsletter-form .btn{flex:1 1 100%;justify-content:center;}}
