@@ -6,7 +6,15 @@
     <atom:link href="https://briefcasego.com/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Weekly AI governance, risk and security analysis for AAISM™ candidates.</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 04 Oct 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 11 Oct 2026 12:00:00 +0000</lastBuildDate>
+    <item>
+      <title>California's New AI Laws Turn Controls Into Duties</title>
+      <link>https://briefcasego.com/blog/california-ai-laws-sb-947-sb-1000/</link>
+      <guid isPermaLink="true">https://briefcasego.com/blog/california-ai-laws-sb-947-sb-1000/</guid>
+      <pubDate>Sun, 11 Oct 2026 12:00:00 +0000</pubDate>
+      <category>Domain 2 — AI Risk Management</category>
+      <description>SB 947 requires human review before AI-driven discipline or firing, and SB 1000 widens California's AI content-labeling law. Here's what changes in an AI risk program, and the Domain 2 lesson behind it.</description>
+    </item>
     <item>
       <title>Pledges vs. Proof: Board-Level AI Oversight</title>
       <link>https://briefcasego.com/blog/white-house-ai-accord-board-oversight/</link>
