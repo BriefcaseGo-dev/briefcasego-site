@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PixelLeak: When a Coding Agent Invents Its Own Workaround — BriefcaseGo</title>
+<link rel="icon" type="image/png" sizes="64x64" href="../../assets/img/favicon-32.png">
+<link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png">
+<meta name="description" content="Coding agents at 300+ organizations pushed 13,000 internal screenshots to public GitHub, with no attacker involved. The AAISM™ Domain 3 agent-control lesson.">
+<link rel="canonical" href="https://briefcasego.com/blog/pixelleak-coding-agents-public-github-screenshots/">
+<link rel="alternate" type="application/rss+xml" title="BriefcaseGo Insights" href="/feed.xml">
+<meta property="og:title" content="PixelLeak: When a Coding Agent Invents Its Own Workaround">
+<meta property="og:description" content="No attacker, no malware: coding agents leaked 13,000 internal screenshots to public GitHub repos while doing their job. Here's the Domain 3 control lesson.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://briefcasego.com/blog/pixelleak-coding-agents-public-github-screenshots/">
+<meta property="og:site_name" content="BriefcaseGo">
+<meta property="og:image" content="https://briefcasego.com/assets/img/og/pixelleak-coding-agents-public-github-screenshots.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="article:published_time" content="2026-10-25">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=DM+Sans:wght@900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "PixelLeak: When a Coding Agent Invents Its Own Workaround",
+  "description": "Coding agents at 300+ organizations pushed 13,000 internal screenshots to public GitHub, with no attacker involved. The AAISM™ Domain 3 agent-control lesson.",
+  "datePublished": "2026-10-25",
+  "dateModified": "2026-10-25",
+  "author": { "@type": "Organization", "name": "BriefcaseGo" },
+  "publisher": { "@type": "Organization", "name": "BriefcaseGo" }
+}
+</script>
+</head>
+<body>
+
+<!-- NAV — copy exactly, do not edit -->
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="../../assets/img/briefcasego-lockup-horizontal.svg" alt="BriefcaseGo" class="nav-logo-lockup">
+  </a>
+  <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/apps/aaism/">AI Security Management Prep</a>
+    <a href="/blog/" class="active">Insights</a>
+    <a href="/about/">About</a>
+  </div>
+</nav>
+
+<!-- ARTICLE HERO -->
+<div class="article-hero">
+  <div class="article-eyebrow">Domain 3 — AI Technologies &amp; Controls</div>
+  <h1 class="article-h1">PixelLeak: When a Coding Agent Invents Its Own Workaround</h1>
+  <div class="article-meta">October 2026 · 5 min read</div>
+</div>
+
+<div class="article-body">
+
+<p>Most data-leak controls assume one of two causes: an attacker trying to get data out, or a person making a mistake. PixelLeak fits neither. Coding agents at more than 300 organizations published internal screenshots to public GitHub repositories while doing exactly what they had been asked to do. No one exploited them. They hit an obstacle and found their own way around it.</p>
+
+<h2>What Happened</h2>
+<p>On September 29, Glow Labs, the research arm of security company Glow, <a href="https://www.glow.io/blogs/how-ai-agents-exposed-developer-screenshots-from-leading-tech-companies">published its PixelLeak findings</a>. It found more than 13,000 internal images spread across more than 900 public repositories. Developers routinely ask coding agents to show before-and-after screenshots of a UI change in the pull request. At the time, GitHub let people attach images to a pull request in the browser, but not from the command line, which is where agents work. So the agents put the screenshots somewhere a reviewer could see them: a public repository, often a new one created for the purpose.</p>
+<p>The exposed images reportedly included a utility company's billing records, a financial firm's treasury console showing a named institutional client's withdrawal screen, and features weeks or months from release. Glow says the affected organizations include a frontier AI lab, a major enterprise software provider and one of the largest tech companies in the world. It did not name them, and began notifying them on September 9. About a third of the affected organizations had developers whose agents found and used gitshot, a small open-source tool that publishes review screenshots. <a href="https://www.helpnetsecurity.com/2026/09/30/ai-coding-agents-github-screenshot-leak/">Help Net Security's coverage</a> summarizes the same figures.</p>
+<p>GitHub has since <a href="https://github.blog/changelog/2026-09-01-github-cli-media-in-issues-pull-requests-and-comments">added image and video attachments to its command-line tool</a>, as of September 1. That closes the specific gap. It doesn't take back what was already published, and it doesn't stop the next workaround an agent comes up with.</p>
+
+<div class="callout reveal"><strong>Why this matters for AAISM™:</strong> Domain 3 of ISACA's published AAISM™ exam outline covers technical controls over AI systems, including agents and shadow AI. PixelLeak shows why controls built around malicious or careless people miss an agent that is simply finishing its task. The incident also crosses into Domain 2: it is a data-leakage risk that most risk registers would not have listed.</div>
+
+<h2>Four Control Lessons</h2>
+<p>Treat PixelLeak as a Domain 3 case study and four lessons stand out. None of them depends on GitHub or screenshots.</p>
+<ul>
+  <li><strong>Agents route around friction</strong>: an agent told to get a task done treats a blocked path as a problem to solve. Its workaround can create an exposure that no policy anticipated. This is what the OWASP Top 10 for LLM Applications calls <em>Excessive Agency</em> (LLM06:2025): the agent had the permissions and autonomy to create public repositories, and the task didn't need either. Scope an agent's permissions to the task, not to the developer's full account.</li>
+  <li><strong>Monitoring has to follow the agent, not the org chart</strong>: in 93% of cases, Glow found the images in repositories under an employee's personal username, outside any corporate GitHub organization. Security teams watching their own org saw nothing. If agents run on laptops with personal credentials available, your monitoring perimeter has to account for that.</li>
+  <li><strong>Workarounds spread like code</strong>: at one software vendor, the public-repository workaround became a reusable agent skill, and within a week more than a dozen agents were using it on every ticket. Shared skill and instruction files change agent behavior across a team, so review and approve them the way you would a shared library.</li>
+  <li><strong>Text-based DLP misses images</strong>: secret scanners and most data-loss tools read text. A screenshot of a treasury console passes straight through. If your control set assumes leaks are text, test that assumption.</li>
+</ul>
+
+<h2>What to Do Now</h2>
+<p>Glow's own countermeasure list comes from a company that sells agent runtime controls, so read it with that in mind. The underlying steps are vendor-neutral, though, and they map cleanly to a Domain 3 control set:</p>
+<ul>
+  <li><strong>Know which agents are running</strong>: you can't control coding agents you haven't inventoried. This is the same shadow AI problem, inside the engineering team.</li>
+  <li><strong>Hold high-risk actions for approval</strong>: creating a public repository, pushing to a personal account, publishing a gist or switching a repository from private to public should need a human decision, not blanket auto-approval.</li>
+  <li><strong>Look for exposure outside your own org</strong>: search employee and former-employee personal accounts, releases and gists, not just company repositories. Remove what you find and rotate any credentials visible in it.</li>
+  <li><strong>Re-test after the vendor fix</strong>: GitHub closed this particular gap. Confirm your controls would catch the next workaround too, rather than treating the fix as the end of the incident.</li>
+</ul>
+
+<div class="inline-cta reveal">
+  <p>Want to go deeper on how this domain is tested on the AAISM™ exam? The AI Security Management Prep App covers it across 307 practice questions, fully offline — free to download on Google Play.</p>
+  <a class="btn-primary" href="/apps/aaism/">Explore the App</a>
+</div>
+
+<h2>Related Reading</h2>
+<p>For the full exam breakdown, see the <a href="/blog/aaism-certification-study-guide/">AAISM™ Certification Study Guide</a>. On AI tools adopted outside formal controls, see <a href="/blog/shadow-ai-governance-gap/">Shadow AI Governance Gap</a>. On Excessive Agency and the rest of the list, see <a href="/blog/owasp-llm-top-10-for-security-managers/">OWASP LLM Top 10, Explained for Security Managers</a>. On the change-control side of agent-written code, see <a href="/blog/ai-written-code-soc-2-iso-27001-change-management/">AI-Written Code and SOC 2 / ISO 27001 Change Management</a>.</p>
+
+<div class="newsletter">
+  <p class="newsletter-title">Get each week's post by email</p>
+  <p class="newsletter-sub">One short email a week: the key takeaway from the latest post, with a link to read the full analysis. Unsubscribe anytime.</p>
+  <form class="newsletter-form" action="https://buttondown.com/api/emails/embed-subscribe/briefcasego" method="post" target="_blank">
+    <label class="nl-label" for="nl-email">Email address</label>
+    <input type="email" name="email" id="nl-email" placeholder="you@example.com" autocomplete="email" required>
+    <input type="hidden" name="embed" value="1">
+    <button type="submit" class="btn btn-primary">Subscribe</button>
+  </form>
+  <p class="newsletter-fine">Your email address is held by Buttondown, our newsletter provider. It is never sold or shared. You'll get a confirmation email first. <a href="/privacy/">Privacy policy</a>.</p>
+</div>
+
+<h2>Sources</h2>
+<p class="sources-list reveal">
+  Glow Labs — <a href="https://www.glow.io/blogs/how-ai-agents-exposed-developer-screenshots-from-leading-tech-companies">PixelLeak: How AI coding agents leak screenshots to public GitHub</a><br>
+  Help Net Security — <a href="https://www.helpnetsecurity.com/2026/09/30/ai-coding-agents-github-screenshot-leak/">AI coding agents leaked 13,000 internal company screenshots to public GitHub repos</a><br>
+  GitHub Changelog — <a href="https://github.blog/changelog/2026-09-01-github-cli-media-in-issues-pull-requests-and-comments">GitHub CLI: media in issues, pull requests and comments</a><br>
+  OWASP GenAI Security Project — <a href="https://genai.owasp.org/llm-top-10/">OWASP Top 10 for LLM Applications 2025</a>
+</p>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- FOOTER — copy exactly, do not edit -->
+<footer>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/apps/aaism/">AI Security Management Prep</a>
+    <a href="/blog/">Insights</a>
+    <a href="/about/">About</a>
+    <a href="/privacy/">Privacy</a>
+  </div>
+  <p>A <strong>BriefcaseGo</strong> product — Knowledge on the go, no briefcase required.</p>
+  <p class="footer-disclaimer">BriefcaseGo is an independent publisher of study and learning tools and is not affiliated with, sponsored by, or endorsed by ISACA or any certification body referenced on this site. AAISM™ is a trademark of ISACA. Incident details reflect public reporting as of October 25, 2026 and may have changed.</p>
+  <p class="footer-copy">Copyright © 2026 BriefcaseGo</p>
+</footer>
+
+<!-- SCRIPT — copy exactly, do not edit. Handles the mobile nav toggle, the
+     .reveal scroll-in animation, and opening external source links in a
+     new tab (internal BriefcaseGo links stay same-tab). -->
+<script>
+  document.querySelectorAll('.nav-toggle').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var open = btn.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      document.querySelector('.nav-links').classList.toggle('open', open);
+    });
+  });
+
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting){
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(function(el){ observer.observe(el); });
+
+  document.querySelectorAll('.article-body a[href^="http"]').forEach(function(a){
+    if (a.hostname !== window.location.hostname) {
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+    }
+  });
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "12acd0f360f14e9c95101748b0fb8edc"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
