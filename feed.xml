@@ -6,7 +6,15 @@
     <atom:link href="https://briefcasego.com/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Weekly AI governance, risk and security analysis for AAISM™ candidates.</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 25 Oct 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 01 Nov 2026 12:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Anthropic's S-1: Model Risk Disclosure and Board Oversight</title>
+      <link>https://briefcasego.com/blog/anthropic-s-1-model-risk-board-oversight/</link>
+      <guid isPermaLink="true">https://briefcasego.com/blog/anthropic-s-1-model-risk-board-oversight/</guid>
+      <pubDate>Sun, 01 Nov 2026 12:00:00 +0000</pubDate>
+      <category>Domain 1 — AI Governance &amp; Program Management</category>
+      <description>A frontier lab's IPO filing admits safety controls have failed quietly and human oversight can't keep pace with agents. Here's the Domain 1 lesson on who owns AI risk at board level.</description>
+    </item>
     <item>
       <title>PixelLeak: When a Coding Agent Invents Its Own Workaround</title>
       <link>https://briefcasego.com/blog/pixelleak-coding-agents-public-github-screenshots/</link>
