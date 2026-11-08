@@ -6,7 +6,15 @@
     <atom:link href="https://briefcasego.com/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Weekly AI governance, risk and security analysis for AAISM™ candidates.</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Nov 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 08 Nov 2026 12:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Singapore's AI Risk Guidelines: A Domain 2 Blueprint</title>
+      <link>https://briefcasego.com/blog/mas-ai-risk-management-guidelines/</link>
+      <guid isPermaLink="true">https://briefcasego.com/blog/mas-ai-risk-management-guidelines/</guid>
+      <pubDate>Sun, 08 Nov 2026 12:00:00 +0000</pubDate>
+      <category>Domain 2 — AI Risk Management</category>
+      <description>Singapore's financial regulator now expects firms to find, inventory and rate every AI use case, including AI hidden in vendor software. Here's the Domain 2 risk process it spells out.</description>
+    </item>
     <item>
       <title>Anthropic's S-1: Model Risk Disclosure and Board Oversight</title>
       <link>https://briefcasego.com/blog/anthropic-s-1-model-risk-board-oversight/</link>
