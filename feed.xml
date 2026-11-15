@@ -6,7 +6,15 @@
     <atom:link href="https://briefcasego.com/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Weekly AI governance, risk and security analysis for AAISM™ candidates.</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 08 Nov 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 15 Nov 2026 12:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Proposed 2027 SOC 2 Criteria: What Changes, Where AI Fits</title>
+      <link>https://briefcasego.com/blog/proposed-2027-soc-2-trust-services-criteria/</link>
+      <guid isPermaLink="true">https://briefcasego.com/blog/proposed-2027-soc-2-trust-services-criteria/</guid>
+      <pubDate>Sun, 15 Nov 2026 12:00:00 +0000</pubDate>
+      <category>IT Audit &amp; Risk</category>
+      <description>The AICPA's SOC 2 draft cuts the common criteria from 33 to 20, drops the COSO tie-in, splits change management three ways and adds AI points of focus. What to do before it's final.</description>
+    </item>
     <item>
       <title>Singapore's AI Risk Guidelines: A Domain 2 Blueprint</title>
       <link>https://briefcasego.com/blog/mas-ai-risk-management-guidelines/</link>
